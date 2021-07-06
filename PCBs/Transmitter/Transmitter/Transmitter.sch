@@ -1,0 +1,219 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MCU_Module:Arduino_Nano_v3.x A1
+U 1 1 60E47348
+P 5750 3100
+F 0 "A1" H 5750 2011 50  0000 C CNN
+F 1 "Arduino_Nano_v3.x" H 5750 1920 50  0000 C CNN
+F 2 "Module:Arduino_Nano" H 5750 3100 50  0001 C CIN
+F 3 "http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf" H 5750 3100 50  0001 C CNN
+	1    5750 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 3800 4400 3800
+Wire Wire Line
+	4400 3800 4400 3400
+Wire Wire Line
+	4400 3400 4100 3400
+Wire Wire Line
+	4100 3500 4950 3500
+Wire Wire Line
+	4950 3500 4950 3700
+Wire Wire Line
+	4950 3700 5250 3700
+Wire Wire Line
+	4050 3600 4100 3600
+Connection ~ 4100 3600
+Wire Wire Line
+	4100 3600 5250 3600
+Wire Wire Line
+	4100 3300 5250 3300
+Wire Wire Line
+	4100 3100 4100 3200
+Wire Wire Line
+	4100 3200 5250 3200
+Wire Wire Line
+	3600 3900 3600 4000
+Wire Wire Line
+	3600 4550 2550 4550
+Wire Wire Line
+	2550 4550 2550 1750
+Wire Wire Line
+	2550 1750 5850 1750
+Wire Wire Line
+	5850 1750 5850 2100
+$Comp
+L power:GND #PWR0101
+U 1 1 60E4A5A7
+P 3600 2700
+F 0 "#PWR0101" H 3600 2450 50  0001 C CNN
+F 1 "GND" H 3605 2527 50  0000 C CNN
+F 2 "" H 3600 2700 50  0001 C CNN
+F 3 "" H 3600 2700 50  0001 C CNN
+	1    3600 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0102
+U 1 1 60E4AE57
+P 5850 4100
+F 0 "#PWR0102" H 5850 3850 50  0001 C CNN
+F 1 "GND" H 5855 3927 50  0000 C CNN
+F 2 "" H 5850 4100 50  0001 C CNN
+F 3 "" H 5850 4100 50  0001 C CNN
+	1    5850 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_PHOTO R3
+U 1 1 60E4B4FC
+P 7500 2700
+F 0 "R3" H 7570 2746 50  0000 L CNN
+F 1 "R_PHOTO" H 7570 2655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 7550 2450 50  0001 L CNN
+F 3 "~" H 7500 2650 50  0001 C CNN
+	1    7500 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_PHOTO R4
+U 1 1 60E4BB6C
+P 7550 3400
+F 0 "R4" H 7620 3446 50  0000 L CNN
+F 1 "R_PHOTO" H 7620 3355 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Vertical" V 7600 3150 50  0001 L CNN
+F 3 "~" H 7550 3350 50  0001 C CNN
+	1    7550 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 60E4C412
+P 7200 3050
+F 0 "R1" H 7270 3096 50  0000 L CNN
+F 1 "R" H 7270 3005 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 7130 3050 50  0001 C CNN
+F 3 "~" H 7200 3050 50  0001 C CNN
+	1    7200 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 60E4D428
+P 7200 3750
+F 0 "R2" H 7270 3796 50  0000 L CNN
+F 1 "R" H 7270 3705 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 7130 3750 50  0001 C CNN
+F 3 "~" H 7200 3750 50  0001 C CNN
+	1    7200 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5950 2100 5950 1950
+Wire Wire Line
+	5950 1950 7500 1950
+Wire Wire Line
+	7500 1950 7500 2550
+Wire Wire Line
+	7500 1950 8000 1950
+Wire Wire Line
+	8000 1950 8000 3150
+Wire Wire Line
+	8000 3150 7550 3150
+Wire Wire Line
+	7550 3150 7550 3250
+Connection ~ 7500 1950
+Wire Wire Line
+	7500 2850 7200 2850
+Wire Wire Line
+	6400 2850 6400 3100
+Wire Wire Line
+	6400 3100 6250 3100
+Wire Wire Line
+	7200 2850 7200 2900
+Connection ~ 7200 2850
+Wire Wire Line
+	7200 2850 6400 2850
+Wire Wire Line
+	6400 3550 6400 3200
+Wire Wire Line
+	6400 3200 6250 3200
+Wire Wire Line
+	6400 3550 7200 3550
+Wire Wire Line
+	7200 3600 7200 3550
+Connection ~ 7200 3550
+Wire Wire Line
+	7200 3550 7550 3550
+$Comp
+L power:GND #PWR0103
+U 1 1 60E5008F
+P 7200 3200
+F 0 "#PWR0103" H 7200 2950 50  0001 C CNN
+F 1 "GND" H 7205 3027 50  0000 C CNN
+F 2 "" H 7200 3200 50  0001 C CNN
+F 3 "" H 7200 3200 50  0001 C CNN
+	1    7200 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0104
+U 1 1 60E505D4
+P 7200 3900
+F 0 "#PWR0104" H 7200 3650 50  0001 C CNN
+F 1 "GND" H 7205 3727 50  0000 C CNN
+F 2 "" H 7200 3900 50  0001 C CNN
+F 3 "" H 7200 3900 50  0001 C CNN
+	1    7200 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L RF:NRF24L01_Breakout U1
+U 1 1 60E5486D
+P 3600 3300
+F 0 "U1" H 3979 3254 50  0000 L CNN
+F 1 "NRF24L01_Breakout" H 3979 3345 50  0000 L CNN
+F 2 "RF_Module:nRF24L01_Breakout" H 3750 3900 50  0001 L CIN
+F 3 "http://www.nordicsemi.com/eng/content/download/2730/34105/file/nRF24L01_Product_Specification_v2_0.pdf" H 3600 3200 50  0001 C CNN
+	1    3600 3300
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 60E58688
+P 2950 2950
+F 0 "C1" H 3065 2996 50  0000 L CNN
+F 1 "C" H 3065 2905 50  0000 L CNN
+F 2 "" H 2988 2800 50  0001 C CNN
+F 3 "~" H 2950 2950 50  0001 C CNN
+	1    2950 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 2800 3600 2800
+Wire Wire Line
+	3600 2800 3600 2700
+Connection ~ 3600 2700
+Wire Wire Line
+	2950 3100 2950 4000
+Wire Wire Line
+	2950 4000 3600 4000
+Connection ~ 3600 4000
+Wire Wire Line
+	3600 4000 3600 4550
+$EndSCHEMATC

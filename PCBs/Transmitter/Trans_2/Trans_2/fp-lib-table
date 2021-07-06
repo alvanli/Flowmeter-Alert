@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name nrf)(type KiCad)(uri C:/DATA/Git/Flowmeter-Alert/PCBs/Transmitter/Trans_2/Trans_2/Lib)(options "")(descr ""))
+)
