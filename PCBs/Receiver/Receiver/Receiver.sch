@@ -529,4 +529,154 @@ Connection ~ 6250 2750
 Wire Wire Line
 	6250 4050 6250 3400
 Connection ~ 6250 3400
+$Comp
+L Display_Character:WC1602A DS?
+U 1 1 60EADF53
+P 4750 5450
+F 0 "DS?" H 4800 5350 50  0000 C CNN
+F 1 "WC1602A" H 4800 5450 50  0000 C CNN
+F 2 "Display:WC1602A" H 4750 4550 50  0001 C CIN
+F 3 "http://www.wincomlcd.com/pdf/WC1602A-SFYLYHTC06.pdf" H 5450 5450 50  0001 C CNN
+	1    4750 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60EAEC01
+P 4750 6250
+F 0 "#PWR?" H 4750 6000 50  0001 C CNN
+F 1 "GND" H 4755 6077 50  0000 C CNN
+F 2 "" H 4750 6250 50  0001 C CNN
+F 3 "" H 4750 6250 50  0001 C CNN
+	1    4750 6250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 60EB2F42
+P 4750 4650
+F 0 "#PWR?" H 4750 4500 50  0001 C CNN
+F 1 "+5V" V 4750 4850 28  0000 C CNN
+F 2 "" H 4750 4650 50  0000 C CNN
+F 3 "" H 4750 4650 50  0000 C CNN
+	1    4750 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 60EB2F49
+P 4750 4650
+F 0 "#PWR?" H 4750 4500 50  0001 C CNN
+F 1 "+5V" V 4750 4850 28  0000 C CNN
+F 2 "" H 4750 4650 50  0000 C CNN
+F 3 "" H 4750 4650 50  0000 C CNN
+	1    4750 4650
+	1    0    0    -1  
+$EndComp
+Connection ~ 4750 4650
+$Comp
+L power:GND #PWR?
+U 1 1 60EB7B3E
+P 5450 4850
+F 0 "#PWR?" H 5450 4600 50  0001 C CNN
+F 1 "GND" H 5455 4677 50  0000 C CNN
+F 2 "" H 5450 4850 50  0001 C CNN
+F 3 "" H 5450 4850 50  0001 C CNN
+	1    5450 4850
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 60EB9286
+P 5300 4850
+F 0 "R?" V 5093 4850 50  0000 C CNN
+F 1 "R" V 5184 4850 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5230 4850 50  0001 C CNN
+F 3 "~" H 5300 4850 50  0001 C CNN
+	1    5300 4850
+	0    1    1    0   
+$EndComp
+Text Label 3700 5050 0    60   ~ 0
+7
+Wire Wire Line
+	4350 5050 3700 5050
+Text Label 3700 5050 0    60   ~ 0
+7
+$Comp
+L power:GND #PWR?
+U 1 1 60EBC2D4
+P 4350 4950
+F 0 "#PWR?" H 4350 4700 50  0001 C CNN
+F 1 "GND" H 4355 4777 50  0000 C CNN
+F 2 "" H 4350 4950 50  0001 C CNN
+F 3 "" H 4350 4950 50  0001 C CNN
+	1    4350 4950
+	0    1    1    0   
+$EndComp
+Text Label 3700 4850 0    60   ~ 0
+6(**)
+Wire Wire Line
+	3700 4850 4350 4850
+Text Label 3700 4850 0    60   ~ 0
+6(**)
+Text Label 3700 5750 0    60   ~ 0
+5(**)
+Wire Wire Line
+	4350 5750 3700 5750
+Text Label 3700 5750 0    60   ~ 0
+5(**)
+Text Label 3700 5850 0    60   ~ 0
+4
+Wire Wire Line
+	3700 5850 4350 5850
+Text Label 3700 5850 0    60   ~ 0
+4
+Text Label 3700 5950 0    60   ~ 0
+3(**)
+Wire Wire Line
+	4350 5950 3700 5950
+Text Label 3700 5950 0    60   ~ 0
+3(**)
+Text Label 3700 6050 0    60   ~ 0
+2
+Wire Wire Line
+	3700 6050 4350 6050
+Text Label 3700 6050 0    60   ~ 0
+2
+$Comp
+L power:GND #PWR?
+U 1 1 60EC73B7
+P 5150 5250
+F 0 "#PWR?" H 5150 5000 50  0001 C CNN
+F 1 "GND" H 5155 5077 50  0000 C CNN
+F 2 "" H 5150 5250 50  0001 C CNN
+F 3 "" H 5150 5250 50  0001 C CNN
+	1    5150 5250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 60EC9EF5
+P 5450 5150
+F 0 "#PWR?" H 5450 5000 50  0001 C CNN
+F 1 "+5V" V 5450 5350 28  0000 C CNN
+F 2 "" H 5450 5150 50  0000 C CNN
+F 3 "" H 5450 5150 50  0000 C CNN
+	1    5450 5150
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 60EC9EFB
+P 5450 5150
+F 0 "#PWR?" H 5450 5000 50  0001 C CNN
+F 1 "+5V" V 5450 5350 28  0000 C CNN
+F 2 "" H 5450 5150 50  0000 C CNN
+F 3 "" H 5450 5150 50  0000 C CNN
+	1    5450 5150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5450 5150 5150 5150
+Connection ~ 5450 5150
 $EndSCHEMATC
