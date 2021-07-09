@@ -23,16 +23,16 @@ void setup(){
 }
 
 void loop(){
-  int photoValue1 = analogRead(photo1);
+  //int photoValue1 = analogRead(photo1);
   int photoValue2 = analogRead(photo2);
-  Serial.println("Photo resistor 1: " + String(photoValue1));
-  Serial.println("Photo resistor 2: " + String(photoValue1));
+  //Serial.println("Photo resistor 1: " + String(photoValue1));
+  Serial.println("Photo resistor 2: " + String(photoValue2));
 
-  int val1 = threshold_check(photoValue1);
+  //int val1 = threshold_check(photoValue1);
   int val2 = threshold_check(photoValue2);
 
-  if (val1 != 0 || val2 != 0) {
-    radio.write(&val1, sizeof(val1));
+  if ( val2 != 0) {
+    //radio.write(&val1, sizeof(val1));
     radio.write(&val2, sizeof(val2));
   }
   delay(1000); 

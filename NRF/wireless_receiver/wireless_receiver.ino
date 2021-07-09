@@ -15,9 +15,12 @@ void setup() {
 
 void loop(){
   if (radio.available()){              //Looking for the data.
-    int curr_time = 0;                 //Saving the incoming data
-    radio.read(&curr_time, sizeof(curr_time));    //Reading the data
-    Serial.println(curr_time);
+    int res1 = 0;
+    int res2 = 0; //Saving the incoming data
+    radio.read(&res1, sizeof(res1));    //Reading the data
+    //radio.read(&res2, sizeof(res2)); 
+    Serial.println("res 1: " + String(res1));
+    //Serial.println("res 2: " + String(res2));
   }
   delay(5);
 }
