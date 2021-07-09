@@ -65,3 +65,12 @@ int threshold_check(int reading, bool curr) {
   }
   return 0;
 }
+
+void calib_photores() {
+  int vals1[10];
+  int vals2[10];
+  for (int i = 0; i < 10; i++) {
+    vals1[i] = 0;
+    vals2[i] = 0;
+  }
+}
