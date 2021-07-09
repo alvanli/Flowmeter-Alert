@@ -1,5 +1,5 @@
 #include <LiquidCrystal.h>
-LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
+LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
 
 #define btnRight 0
 #define btnUp 1
