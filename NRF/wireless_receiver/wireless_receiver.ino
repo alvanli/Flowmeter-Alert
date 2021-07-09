@@ -18,9 +18,9 @@ void loop(){
     int res1 = 0;
     int res2 = 0; //Saving the incoming data
     radio.read(&res1, sizeof(res1));    //Reading the data
-    //radio.read(&res2, sizeof(res2)); 
+    radio.read(&res2, sizeof(res2)); 
     Serial.println("res 1: " + String(res1));
-    //Serial.println("res 2: " + String(res2));
+    Serial.println("res 2: " + String(res2));
   }
   delay(5);
 }
