@@ -8,8 +8,12 @@ const byte address[6] = "00001";
 bool curr = false; // false if below threshold, true if above threshold
 int threshold = 250;
 
+int photo1 = A0;
+int photo2 = A1;
+
 void setup(){
-  pinMode(A0, INPUT);
+  pinMode(photo1, INPUT);
+  pinMode(photo2, INPUT);
   Serial.begin(9600);
 
   radio.begin();
@@ -19,16 +23,18 @@ void setup(){
 }
 
 void loop(){
-  int photoValue = analogRead(A0);
-  Serial.print(photoValue);
-  Serial.print("\n");
+  int photoValue1 = analogRead(photo1);
+  int photoValue2 = analogRead(photo2);
+  Serial.println("Photo resistor 1: " + String(photoValue1));
+  Serial.println("Photo resistor 2: " + String(photoValue1));
 
-  int val = threshold_check(photoValue);
+  int val1 = threshold_check(photoValue1);
+  int val2 = threshold_check(photoValue2);
 
-  if (val != 0) {
-    radio.write(&val, sizeof(val));
+  if (val1 != 0 || val2 != 0) {
+    radio.write(&val1, sizeof(val1));
+    radio.write(&val2, sizeof(val2));
   }
-  
   delay(1000); 
 }
 
