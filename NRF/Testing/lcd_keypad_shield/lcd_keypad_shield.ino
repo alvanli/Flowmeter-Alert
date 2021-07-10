@@ -39,8 +39,8 @@ boolean debounce(boolean prev, int readPin){
 
 void setup() {
   Serial.begin(9600);
-  lcd.begin(16, 2);
-  lcd.setCursor(0, 0);
+  lcd.begin(16, 2); // dimensions of the display
+  lcd.setCursor(0, 0); // position of the cursor
   lcd.println(WARNING);
 
   pinMode(btnSelect, INPUT); 
@@ -51,17 +51,17 @@ void setup() {
 }
 
 int state = 0; // 0: Warning, 1: Menu, 2: Thres Menu
-int menuState = 0;
+int menuState = 0; // 0: ALARM_STR, 1: THRESHOLD_STR, 2: LED_STR
 
 void loop() {
   lcdKey = readLCDButtons();
-  if (state == 0){
+  if (state == 0){ 
     lcd.setCursor(0, 0);
     lcd.println(WARNING);
   }
-  else if (state == 1){
+  else if (state == 1){ 
     lcd.setCursor(0,0);
-    lcd.println(MENU_ITEMS[menuState]);
+    lcd.println(MENU_ITEMS[menuState]);  
     int secondState = menuState >= (int)(sizeof(MENU_ITEMS)/sizeof(MENU_ITEMS[0]))-1 ? 0 : menuState+1;
     lcd.setCursor(0,1);
     lcd.println(MENU_ITEMS[menuState]);
@@ -69,6 +69,22 @@ void loop() {
       menuState = menuState >= (int)(sizeof(MENU_ITEMS)/sizeof(MENU_ITEMS[0])) ? 0 : menuState + 1;
     }else if (lcdKey == btnUp){
       menuState = menuState == 0 ? 0 : menuState + 1;
+    }
+  }
+  else if (state == 2) { 
+    lcd.setCursor(0, 0);
+    lcd.println(THRESHOLD_STR);
+    lcd.setCursor(0, 1);
+    lcd.println(THRESHOLD);
+    int threshold = THRESHOLD;
+    if (lcdKey == btnDown){
+      threshold += 1;
+      lcd.setCursor(0, 1);
+      lcd.println(threshold);
+    }else if (lcdKey == btnUp){
+      threshold -= 1;
+      lcd.setCursor(0, 1);
+      lcd.println(threshold);
     }
   }
   
