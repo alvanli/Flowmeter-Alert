@@ -11,8 +11,6 @@ int SW = 8;
 int xPosition = 0;
 int yPosition = 0;
 int SW_state = 0;
-int mapX = 0;
-int mapY = 0;
 
 static unsigned long lastInterruptTime = millis();
 
@@ -34,6 +32,7 @@ boolean debounce(boolean prev, int readPin){
 static unsigned long lastRead = millis();
 
 int readLCDButtons() {
+  
   for(int i = 0; i < 4; i++) {
     boolean prev = btnPressed(BTN_PINS[i]);
     boolean curr = debounce(prev, BTN_PINS[i]);

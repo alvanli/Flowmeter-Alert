@@ -72,28 +72,18 @@ void forceRefresh(){
   prevMsg2 = "";
 }
 
-void loop() {
-  //lcdKey = readLCDButtons();
-  xPosition = analogRead(VRx);
-  yPosition = analogRead(VRy);
-  SW_state = digitalRead(SW);
-  Serial.println(SW_state);
-  mapX = map(xPosition, 0, 1023, -512, 512);
-  mapY = map(yPosition, 0, 1023, -512, 512);
-  //Serial.println(xPosition);
-  //Serial.println(yPosition);
-  delay(1000);
+void showMenu() {
   if (state == 0){ 
     displayLCD(WARNING, "");
-    if (SW_state == 0) state = 1;
+    if (lcdKey == BTN_SELECT) state = 1;
   }
   else if (state == 1){ 
     mainMenuDisplay(menuState);
-    if (yPosition < 100){
+    if (lcdKey == BTN_DOWN){
       menuState = menuState >= MENU_SIZE -1 ? 0 : menuState + 1;
-    }else if (yPosition > 900){
+    }else if (lcdKey == BTN_UP){
       menuState = menuState == 0 ? MENU_SIZE-1 : menuState - 1;
-    }else if (SW_state == 0){
+    }else if (lcdKey == BTN_SELECT){
       if (menuState == 1){
         state = 2;
       }else if (menuState == 2){
@@ -115,17 +105,34 @@ void loop() {
   else if (state == 2) { 
     displayLCD(THRESHOLD_STR, String(THRESHOLD));
 
-    if(yPosition < 100){
+    if(lcdKey == BTN_DOWN){
       THRESHOLD -= 5;
       forceRefresh();
-    }else if (yPosition > 900){
+    }else if (lcdKey == BTN_UP){
       THRESHOLD += 5;
       forceRefresh();
-    }else if (SW_state == 0){
+    }else if (lcdKey == BTN_SELECT){
       state = 0;
     }
   }
-  
+}
+
+void loop() {
+  xPosition = analogRead(VRx);
+  yPosition = analogRead(VRy);
+  SW_state = digitalRead(SW);
+  if (SW_state == 0) { 
+    lcdKey = BTN_SELECT;
+  } else if (yPosition < 100) {
+    lcdKey = BTN_UP;
+  } else if (yPosition > 900) {
+    lcdKey = BTN_DOWN;
+  } 
+  //Serial.println(SW_state);
+  Serial.println(xPosition);
+  Serial.println(yPosition);
+  delay(1000);
+
   switch(lcdKey) {
     case BTN_SELECT: 
       Serial.println("select");
