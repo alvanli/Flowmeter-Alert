@@ -7,10 +7,12 @@ const byte address[6] = "00001";
 
 bool curr1 = false; // true if below threshold, false if above threshold
 bool curr2 = false;
-int threshold = 250;
 
 int photo1 = A0;
 int photo2 = A1;
+
+int threshold1 = 250;
+int threshold2 = 250;
 
 void setup(){
   pinMode(photo1, INPUT);
@@ -21,6 +23,9 @@ void setup(){
   radio.openWritingPipe(address); 
   radio.setPALevel(RF24_PA_MIN);  
   radio.stopListening(); 
+  
+  threshold1 = calib_photores(photo1, 10);
+  threshold2 = calib_photores(photo2, 10);
 }
 
 void loop(){
@@ -66,13 +71,11 @@ int threshold_check(int reading, bool curr) {
   return 0;
 }
 
-void calib_photores() {
-  float sum1;
-  float sum2;
-  int n = 10;
-  for (int i = 0; i < n; i++) {
-    sum1 += analogRead(photo1) / n;
-    sum2 += analogRead(photo2) / n;
+int calib_photores(int photoPin, int cycles) {
+  float sum;
+  for (int i = 0; i < cycles; i++) {
+    sum += analogRead(photoPin) / cycles;
   }
-  delay(1000);
+  delay(500);
+  return int(sum);
 }
