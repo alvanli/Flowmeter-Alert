@@ -5,6 +5,9 @@
 RF24 radio(9, 10); // CE, CSN
 const byte address[6] = "00001";
 
+bool tooHigh = false;
+bool tooLow = false;
+
 void setup() {
   Serial.begin(9600);
   radio.begin();
@@ -21,12 +24,30 @@ void loop(){
     radio.read(&res2, sizeof(res2)); 
     Serial.println("res 1: " + String(res1));
     Serial.println("res 2: " + String(res2));
-    int ballLoc = getBallLocation(res1, res2);
-    Serial.println("Ball location: " + String(ballLoc));
+    getBallLocation(res1, res2);
+    Serial.println("Too high?: " + String(tooHigh));
+    Serial.println("Too low?: " + String(tooLow));
+    if (!tooHigh && !tooLow) {
+      Serial.println("Ball is in the center");
+    }
+    if (tooHigh && tooLow){
+      Serial.println("ERROR: ball is too high and too low at the same time");
+    }
   }
   delay(5);
 }
 
-int getBallLocation(res1, res2) {
-  
+void getBallLocation(int res1, int res2) {
+  if (res1 == 1){
+    tooHigh = true;
+  }
+  if (res2 == 1){
+    tooLow = true;
+  }
+  if (res1 == -1){
+    tooHigh = false;
+  }
+  if (res2 == -1){
+    tooLow = false;
+  }
 }
