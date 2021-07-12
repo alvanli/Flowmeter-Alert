@@ -22,11 +22,11 @@ void setup() {
   Serial.begin(9600);
   lcd.begin(16, 2); // dimensions of the display
   lcd.setCursor(0, 0); // position of the cursor
-  lcd.println(WARNING);
+  lcd.print(WARNING);
 
-  pinMode(BTN_SELECT, INPUT); 
-  pinMode(BTN_UP, INPUT); 
-  pinMode(BTN_DOWN, INPUT);  
+  pinMode(VRx, INPUT);
+  pinMode(VRy, INPUT);
+  pinMode(SW, INPUT_PULLUP); 
 }
 
 int state = 0; // 0: Warning, 1: Menu, 2: Thres Menu
@@ -39,15 +39,15 @@ boolean alarm_state = true;
 String prevMsg1 = "";
 String prevMsg2 = "";
 
-void display(String message1, String message2){
+void displayLCD(String message1, String message2){
   if (!prevMsg1.equals(message1) && !prevMsg2.equals(message2)){
     prevMsg1 = message1;
     prevMsg2 = message2;
     lcd.clear();
     lcd.setCursor(0, 0);
-    lcd.println(message1);
+    lcd.print(message1);
     lcd.setCursor(0, 1);
-    lcd.println(message2);
+    lcd.print(message2);
   }
 }
 
@@ -70,7 +70,7 @@ void mainMenuDisplay(int menuState){
   }else if (secondState == 2){
     secondMessage = secondMessage + ": " + onOff(led_state);
   }
-  display(firstMessage, secondMessage);
+  displayLCD(firstMessage, secondMessage);
 }
 
 void forceRefresh(){
@@ -79,8 +79,27 @@ void forceRefresh(){
 }
 
 void loop() {
-  lcdKey = readLCDButtons();
+  //lcdKey = readLCDButtons();
+  xPosition = analogRead(VRx);
+  yPosition = analogRead(VRy);
+  SW_state = digitalRead(SW);
+  Serial.println(SW_state);
+  mapX = map(xPosition, 0, 1023, -512, 512);
+  mapY = map(yPosition, 0, 1023, -512, 512);
+  //Serial.println(xPosition);
+  //Serial.println(yPosition);
+  delay(1000);
   if (state == 0){ 
+<<<<<<< HEAD:NRF/Testing/LCD/lcd_keypad_shield/lcd_keypad_shield.ino
+    displayLCD(WARNING, "");
+    if (lcdKey == BTN_SELECT) state = 1;
+  }
+  else if (state == 1){ 
+    mainMenuDisplay(menuState);
+    if (yPosition < 100){
+      menuState = menuState >= MENU_SIZE -1 ? 0 : menuState + 1;
+    }else if (yPosition > 900){
+=======
     display(WARNING, "");
     if (lcdKey == BTN_SELECT){
       state = 1;
@@ -92,8 +111,9 @@ void loop() {
     if (lcdKey == BTN_DOWN){
       menuState = menuState >= MENU_SIZE-1 ? 0 : menuState + 1;
     }else if (lcdKey == BTN_UP){
+>>>>>>> 0a8c6e4d4db0cc904712fb24cb97a73200462c26:NRF/Testing/LCD/lcd_keypad_shield.ino
       menuState = menuState == 0 ? MENU_SIZE-1 : menuState - 1;
-    }else if (lcdKey == BTN_SELECT){
+    }else if (SW_state == 0){
       if (menuState == 1){
         state = 2;
         prevState = 1;
@@ -108,7 +128,7 @@ void loop() {
         led_state = true;
         alarm_state = true;
         forceRefresh();
-        display("Reset", "Complete");
+        displayLCD("Reset", "Complete");
         delay(1000);
         // send reset
       }else if (menuState == 4){
@@ -120,14 +140,20 @@ void loop() {
     }
   }
   else if (state == 2) { 
+<<<<<<< HEAD:NRF/Testing/LCD/lcd_keypad_shield/lcd_keypad_shield.ino
+    displayLCD(THRESHOLD_STR, String(THRESHOLD));
+
+    if(yPosition < 100){
+=======
     display(THRESHOLD_STR, String(THRESHOLD));
     if(lcdKey == BTN_DOWN){
+>>>>>>> 0a8c6e4d4db0cc904712fb24cb97a73200462c26:NRF/Testing/LCD/lcd_keypad_shield.ino
       THRESHOLD -= 5;
       forceRefresh();
-    }else if (lcdKey == BTN_UP){
+    }else if (yPosition > 900){
       THRESHOLD += 5;
       forceRefresh();
-    }else if (lcdKey == BTN_SELECT){
+    }else if (SW_state == 0){
       state = 0;
       prevState = 2;
     }
