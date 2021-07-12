@@ -1,11 +1,15 @@
 #include <LiquidCrystal.h>
 #include "detectButton.h"
+#include <SPI.h>
+#include <nRF24L01.h>
+#include <RF24.h>
+#include "pitches.h"
 
 LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
 
 int lcdKey = 0;
 
-const String WARNING = "WORDS OF WARNING";
+String warning_string = "DEFAULT";
 const String ALARM_STR = "Alarm";
 const String THRESHOLD_STR = "Set Threshold";
 const String LED_STR = "LED";
@@ -24,16 +28,39 @@ boolean alarm_state = true;
 String prevMsg1 = "";
 String prevMsg2 = "";
 
+RF24 radio(9, 10); // CE, CSN
+const byte address[6] = "00001";
+
+bool tooHigh = false;
+bool tooLow = false;
+
+int melody[] = {
+  NOTE_G4, NOTE_G4, NOTE_G4, NOTE_DS3, NOTE_AS4, NOTE_G4, NOTE_DS3, NOTE_AS4, NOTE_G4, END
+};
+
+// note durations: 8 = quarter note, 4 = 8th note, etc.
+int noteDurations[] = {       //duration of the notes
+  2, 2, 2, 2, 1, 2, 2, 1, 2
+};
+
+int speed=90;  //higher value, slower notes
 
 void setup() {
   Serial.begin(9600);
   lcd.begin(16, 2); // dimensions of the display
   lcd.setCursor(0, 0); // position of the cursor
-  lcd.print(WARNING);
+  lcd.print(warning_string);
 
   pinMode(VRx, INPUT);
   pinMode(VRy, INPUT);
   pinMode(SW, INPUT_PULLUP); 
+
+  pinMode(A2, OUTPUT);
+
+  radio.begin();
+  radio.openReadingPipe(0, address);   //Setting the address at which we will receive the data
+  radio.setPALevel(RF24_PA_MIN);       //You can set this as minimum or maximum depending on the distance between the transmitter and receiver.
+  radio.startListening();     
 }
 
 
@@ -78,7 +105,7 @@ void forceRefresh(){
 
 void showMenu(int lcdKey) {
   if (state == 0){ 
-    displayLCD(WARNING, "");
+    displayLCD(warning_string, "");
     if (lcdKey == BTN_SELECT) {
       state = 1;
       prevState = 0;
@@ -145,5 +172,58 @@ void loop() {
       break;
     default: 
       break;
+  }
+
+  if (radio.available()){              //Looking for the data.
+    int res1 = 0;
+    int res2 = 0; //Saving the incoming data
+    radio.read(&res1, sizeof(res1));    //Reading the data
+    radio.read(&res2, sizeof(res2)); 
+    //Serial.println("res 1: " + String(res1));
+    //Serial.println("res 2: " + String(res2));
+    getBallLocation(res1, res2);
+    Serial.println("Too high?: " + String(tooHigh));
+    Serial.println("Too low?: " + String(tooLow));
+    if (tooHigh && !tooLow) {
+      warning_string = "TOO HIGH";
+      playAlarm();
+    } else if (!tooHigh && tooLow) {
+      warning_string = "TOO LOW";
+      playAlarm();
+    } else if (!tooHigh && !tooLow) {
+      warning_string = "GOOD";
+    }
+    //if (tooHigh && tooLow){
+      //Serial.println("ERROR: ball is too high and too low at the same time");
+    //}
+  }
+}
+
+void getBallLocation(int res1, int res2) {
+  if (res1 == 1){
+    tooHigh = true;
+  }
+  if (res2 == 1){
+    tooLow = true;
+  }
+  if (res1 == -1){
+    tooHigh = false;
+  }
+  if (res2 == -1){
+    tooLow = false;
+  }
+}
+
+void playAlarm(){
+  if (alarm_state) {
+   for (int thisNote = 0; melody[thisNote]!=-1; thisNote++) {
+      int noteDuration = speed*noteDurations[thisNote];
+      tone(A2, melody[thisNote],noteDuration*.95);
+      Serial.println(melody[thisNote]);
+      
+      delay(noteDuration);
+      
+      noTone(A2);
+    } 
   }
 }
