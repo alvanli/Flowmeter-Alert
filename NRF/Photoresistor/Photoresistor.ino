@@ -8,16 +8,19 @@ const byte address[6] = "00001";
 bool curr1 = false; // true if below threshold, false if above threshold
 bool curr2 = false;
 
-int photo1 = A0;
-int photo2 = A1;
+int photo1 = A0; // higher resistor
+int photo2 = A1; // lower resistor
 
-int laser1 = 6; // with A0
-int laser2 = 5; // with A1
+int laser1 = A3; // with A0 (higher) USED TO BE 6
+int laser2 = A4; // with A1 (lower) USED TO BE 5
 
 int threshold1 = 250;
 int threshold2 = 250;
 
 void setup(){
+
+  randomSeed(analogRead(0)); // CHANGE IF USING PIN 0
+  
   pinMode(photo1, INPUT);
   pinMode(photo2, INPUT);
   pinMode(laser1, OUTPUT);
@@ -33,6 +36,9 @@ void setup(){
   calib_photores(photo2, 10, laser2, 1);
   Serial.println("Threshold 1: " + String(threshold1));
   Serial.println("Threshold 2: " + String(threshold2));
+
+  analogWrite(laser1, 255);
+  analogWrite(laser2, 255);
 }
 
 void loop(){
@@ -66,14 +72,14 @@ void loop(){
   delay(1000); 
 }
 
-// return 1 if reading moved below threshold (from bad to good)
+// return -1 if reading moved below threshold (from bad to good)
 // return 0 if no change
-// return -1 if reading moved above threshold (from good to bad)
+// return 1 if reading moved above threshold (from good to bad)
 int threshold_check(int reading, bool curr, int threshold) {
   if (curr && (reading > threshold)) {
-    return -1; 
+    return 1; 
   } else if (!curr && (reading < threshold)) {
-    return 1;
+    return -1;
   }
   return 0;
 }
@@ -82,18 +88,42 @@ void calib_photores(int photoPin, int cycles, int laser, int t) {
   float sumDim;
   float sumBright;
   // Ambient light
-  digitalWrite(laser, LOW);
+  analogWrite(laser, 0);
   for (int i = 0; i < cycles; i++) {
     sumDim += analogRead(photoPin) / cycles;
     delay(500);
   }
   // Laser light
-  digitalWrite(laser, HIGH);
+  analogWrite(laser, 255);
   for (int i = 0; i < cycles; i++) {
     sumBright += analogRead(photoPin) / cycles;
     delay(500);
   }
-  digitalWrite(laser, LOW);
-  int threshold = int((sumDim + sumBright) / 2);
+  analogWrite(laser, 0);
+  int threshold = int((sumDim + 4 * sumBright) / 5);
   t ? (threshold2 = threshold) : (threshold1 = threshold);
+}
+
+void check_threshold(int photoPin, int laser, int threshold) {
+  int reading = 0;
+  for (int i = 0; i < 10; i++) {
+    if (i % 2 == 0) {
+      reading = analogRead(photoPin);
+      if (reading > threshold) {
+        Serial.println("Check " + String(i) + ": Good");
+      } else {
+        Serial.println("Check " + String(i) + ": Bad");
+      }
+    } else {
+      analogWrite(laser, 255);
+      reading = analogRead(photoPin);
+      if (reading < threshold) {
+        Serial.println("Check " + String(i) + ": Good");
+      } else {
+        Serial.println("Check " + String(i) + ": Bad");
+      }
+      analogWrite(laser, 0);
+    }
+    delay(200);
+  }
 }
