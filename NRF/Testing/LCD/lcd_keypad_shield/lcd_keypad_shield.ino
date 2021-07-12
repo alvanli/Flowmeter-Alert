@@ -72,7 +72,7 @@ void forceRefresh(){
   prevMsg2 = "";
 }
 
-void showMenu() {
+void showMenu(int lcdKey) {
   if (state == 0){ 
     displayLCD(WARNING, "");
     if (lcdKey == BTN_SELECT) state = 1;
@@ -118,20 +118,12 @@ void showMenu() {
 }
 
 void loop() {
-  xPosition = analogRead(VRx);
-  yPosition = analogRead(VRy);
-  SW_state = digitalRead(SW);
-  if (SW_state == 0) { 
-    lcdKey = BTN_SELECT;
-  } else if (yPosition < 100) {
-    lcdKey = BTN_UP;
-  } else if (yPosition > 900) {
-    lcdKey = BTN_DOWN;
-  } 
+  lcdKey = readLCDButtons();
+  showMenu(lcdKey);
   //Serial.println(SW_state);
-  Serial.println(xPosition);
-  Serial.println(yPosition);
-  delay(1000);
+  //Serial.println(xPosition);
+  //Serial.println(yPosition);
+  //delay(1000);
 
   switch(lcdKey) {
     case BTN_SELECT: 
