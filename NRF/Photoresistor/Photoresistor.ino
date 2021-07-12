@@ -11,8 +11,8 @@ bool curr2 = false;
 int photo1 = A0;
 int photo2 = A1;
 
-int laser1 = 0;
-int laser2 = 0;
+int laser1 = 6; // with A0
+int laser2 = 5; // with A1
 
 int threshold1 = 250;
 int threshold2 = 250;
@@ -20,6 +20,8 @@ int threshold2 = 250;
 void setup(){
   pinMode(photo1, INPUT);
   pinMode(photo2, INPUT);
+  pinMode(laser1, OUTPUT);
+  pinMode(laser2, OUTPUT);
   Serial.begin(9600);
 
   radio.begin();
@@ -27,8 +29,8 @@ void setup(){
   radio.setPALevel(RF24_PA_MIN);  
   radio.stopListening(); 
   
-  calib_photores(photo1, 10, laser2, threshold1);
-  calib_photores(photo2, 10, laser2, threshold2);
+  calib_photores(photo1, 10, laser1, 0);
+  calib_photores(photo2, 10, laser2, 1);
   Serial.println("Threshold 1: " + String(threshold1));
   Serial.println("Threshold 2: " + String(threshold2));
 }
@@ -76,7 +78,7 @@ int threshold_check(int reading, bool curr, int threshold) {
   return 0;
 }
 
-void calib_photores(int photoPin, int cycles, int laser, int threshold) {
+void calib_photores(int photoPin, int cycles, int laser, int t) {
   float sumDim;
   float sumBright;
   // Ambient light
@@ -91,5 +93,7 @@ void calib_photores(int photoPin, int cycles, int laser, int threshold) {
     sumBright += analogRead(photoPin) / cycles;
     delay(100);
   }
-  threshold = int((sumDim + sumBright) / 2);
+  digitalWrite(laser, LOW);
+  int threshold = int((sumDim + sumBright) / 2);
+  t ? (threshold2 = threshold) : (threshold1 = threshold);
 }
