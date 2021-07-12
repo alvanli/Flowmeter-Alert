@@ -85,13 +85,13 @@ void calib_photores(int photoPin, int cycles, int laser, int t) {
   digitalWrite(laser, LOW);
   for (int i = 0; i < cycles; i++) {
     sumDim += analogRead(photoPin) / cycles;
-    delay(100);
+    delay(500);
   }
   // Laser light
   digitalWrite(laser, HIGH);
   for (int i = 0; i < cycles; i++) {
     sumBright += analogRead(photoPin) / cycles;
-    delay(100);
+    delay(500);
   }
   digitalWrite(laser, LOW);
   int threshold = int((sumDim + sumBright) / 2);
