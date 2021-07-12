@@ -36,8 +36,8 @@ void loop(){
   Serial.println("Photo resistor 1: " + String(photoValue1));
   Serial.println("Photo resistor 2: " + String(photoValue2));
 
-  int val1 = threshold_check(photoValue1, curr1);
-  int val2 = threshold_check(photoValue2, curr2);
+  int val1 = threshold_check(photoValue1, curr1, threshold1);
+  int val2 = threshold_check(photoValue2, curr2, threshold2);
   if (val1 == 1){
     curr1 = true;
   }
@@ -64,7 +64,7 @@ void loop(){
 // return 1 if reading moved below threshold (from bad to good)
 // return 0 if no change
 // return -1 if reading moved above threshold (from good to bad)
-int threshold_check(int reading, bool curr) {
+int threshold_check(int reading, bool curr, int threshold) {
   if (curr && (reading > threshold)) {
     return -1; 
   } else if (!curr && (reading < threshold)) {
