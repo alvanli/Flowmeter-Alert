@@ -4,12 +4,22 @@ const int BTN_DOWN = A2;
 const int BTN_THRESHOLD = 1000;
 const int BTN_PINS[] = {BTN_SELECT, BTN_UP, BTN_DOWN};
 
+int VRx = A0;
+int VRy = A1;
+int SW = 8;
+
+int xPosition = 0;
+int yPosition = 0;
+int SW_state = 0;
+int mapX = 0;
+int mapY = 0;
+
 static unsigned long lastInterruptTime = millis();
 
 boolean btnPressed(int readPin){
   //Serial.print(String(readPin) + " ");
   //Serial.println(analogRead(readPin));
-  return analogRead(readPin) > BTN_THRESHOLD;
+  //return analogRead(readPin) > BTN_THRESHOLD;
 }
 
 boolean debounce(boolean prev, int readPin){
