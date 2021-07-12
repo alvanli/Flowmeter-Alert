@@ -10,8 +10,9 @@ const String ALARM_STR = "Alarm";
 const String THRESHOLD_STR = "Set Threshold";
 const String LED_STR = "LED";
 const String RESET_STR = "RESET";
-const String MENU_ITEMS[] = {ALARM_STR, THRESHOLD_STR, LED_STR, RESET_STR};
-const int MENU_SIZE = 4;
+const String BACK = "Back";
+const String MENU_ITEMS[] = {ALARM_STR, THRESHOLD_STR, LED_STR, RESET_STR, BACK};
+const int MENU_SIZE = 5;
 int THRESHOLD = 1000;
 
 void setup() {
@@ -26,6 +27,7 @@ void setup() {
 }
 
 int state = 0; // 0: Warning, 1: Menu, 2: Thres Menu
+int prevState = 0;
 int menuState = 2; // 0: ALARM_STR, 1: THRESHOLD_STR, 2: LED_STR
 boolean led_state = true;
 boolean alarm_state = true;
@@ -75,7 +77,10 @@ void forceRefresh(){
 void showMenu(int lcdKey) {
   if (state == 0){ 
     displayLCD(WARNING, "");
-    if (lcdKey == BTN_SELECT) state = 1;
+    if (lcdKey == BTN_SELECT) {
+      state = 1;
+      prevState = 0;
+    }
   }
   else if (state == 1){ 
     mainMenuDisplay(menuState);
@@ -86,6 +91,7 @@ void showMenu(int lcdKey) {
     }else if (lcdKey == BTN_SELECT){
       if (menuState == 1){
         state = 2;
+        prevState = 1;
       }else if (menuState == 2){
         led_state = !led_state;
         forceRefresh();
@@ -99,6 +105,9 @@ void showMenu(int lcdKey) {
         forceRefresh();
         displayLCD("Reset", "Complete");
         delay(1000);
+      }else if (menuState == 4){
+        state = 0;
+        prevState = 1;
       }
     }
   }
@@ -113,6 +122,7 @@ void showMenu(int lcdKey) {
       forceRefresh();
     }else if (lcdKey == BTN_SELECT){
       state = 0;
+      prevState = 2;
     }
   }
 }
