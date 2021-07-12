@@ -1,5 +1,7 @@
 #include <LiquidCrystal.h>
 #include "detectButton.h"
+#include "pitches.h"
+
 
 LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
 
@@ -10,7 +12,9 @@ const String ALARM_STR = "Alarm";
 const String THRESHOLD_STR = "Set Threshold";
 const String LED_STR = "LED";
 const String RESET_STR = "RESET";
-const String MENU_ITEMS[] = {ALARM_STR, THRESHOLD_STR, LED_STR, RESET_STR};
+const String BACK_STR = "BACK";
+const String CALI_STR = "CALIBRATE";
+const String MENU_ITEMS[] = {ALARM_STR, THRESHOLD_STR, LED_STR, RESET_STR, BACK_STR, CALI_STR};
 const int MENU_SIZE = 4;
 int THRESHOLD = 1000;
 
@@ -26,7 +30,9 @@ void setup() {
 }
 
 int state = 0; // 0: Warning, 1: Menu, 2: Thres Menu
-int menuState = 2; // 0: ALARM_STR, 1: THRESHOLD_STR, 2: LED_STR
+int prevState = 0;
+int menuState = 0; // 0: ALARM_STR, 1: THRESHOLD_STR, 2: LED_STR, 3: RESET_STR, 4: BACK_STR, 5: CALI_STR;
+int prevMenuState = 0;
 boolean led_state = true;
 boolean alarm_state = true;
 
@@ -76,17 +82,21 @@ void loop() {
   lcdKey = readLCDButtons();
   if (state == 0){ 
     display(WARNING, "");
-    if (lcdKey == BTN_SELECT) state = 1;
+    if (lcdKey == BTN_SELECT){
+      state = 1;
+      prevState = 0;
+    }
   }
   else if (state == 1){ 
     mainMenuDisplay(menuState);
     if (lcdKey == BTN_DOWN){
-      menuState = menuState >= MENU_SIZE -1 ? 0 : menuState + 1;
+      menuState = menuState >= MENU_SIZE-1 ? 0 : menuState + 1;
     }else if (lcdKey == BTN_UP){
       menuState = menuState == 0 ? MENU_SIZE-1 : menuState - 1;
     }else if (lcdKey == BTN_SELECT){
       if (menuState == 1){
         state = 2;
+        prevState = 1;
       }else if (menuState == 2){
         led_state = !led_state;
         forceRefresh();
@@ -100,12 +110,17 @@ void loop() {
         forceRefresh();
         display("Reset", "Complete");
         delay(1000);
+        // send reset
+      }else if (menuState == 4){
+        state = 0;
+        prevState = 1;
+      }else if (menuState == 5){
+        // send cali
       }
     }
   }
   else if (state == 2) { 
     display(THRESHOLD_STR, String(THRESHOLD));
-
     if(lcdKey == BTN_DOWN){
       THRESHOLD -= 5;
       forceRefresh();
@@ -114,6 +129,7 @@ void loop() {
       forceRefresh();
     }else if (lcdKey == BTN_SELECT){
       state = 0;
+      prevState = 2;
     }
   }
   
