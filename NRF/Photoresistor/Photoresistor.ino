@@ -26,6 +26,8 @@ void setup(){
   
   threshold1 = calib_photores(photo1, 10);
   threshold2 = calib_photores(photo2, 10);
+  Serial.println("Threshold 1: " + String(threshold1));
+  Serial.println("Threshold 2: " + String(threshold2));
 }
 
 void loop(){
