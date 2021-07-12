@@ -6,7 +6,7 @@ int speed=90;  //higher value, slower notes
 void setup() {
 
   Serial.begin(9600);
-
+  playAlarm();
 }
 
 int melody[] = {

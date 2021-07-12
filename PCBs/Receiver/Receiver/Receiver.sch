@@ -348,14 +348,6 @@ Wire Wire Line
 Text Label 4500 3400 0    60   ~ 0
 13(SCK)
 Wire Wire Line
-	4750 3300 4100 3300
-Text Label 4750 3300 2    60   ~ 0
-8
-Wire Wire Line
-	4100 3100 4750 3100
-Text Label 4750 3100 2    60   ~ 0
-7
-Wire Wire Line
 	2950 4000 3600 4000
 Wire Wire Line
 	2950 3100 2950 4000
@@ -412,123 +404,38 @@ F 3 "" H 3600 4000 50  0000 C CNN
 $EndComp
 Connection ~ 3600 4000
 $Comp
-L Device:LED D2
-U 1 1 60E4D82D
-P 6100 3400
-F 0 "D2" H 6093 3617 50  0000 C CNN
-F 1 "LED" H 6093 3526 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm" H 6100 3400 50  0001 C CNN
-F 3 "~" H 6100 3400 50  0001 C CNN
-	1    6100 3400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:LED D3
-U 1 1 60E4F5C0
-P 6100 4050
-F 0 "D3" H 6093 4267 50  0000 C CNN
-F 1 "LED" H 6093 4176 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm" H 6100 4050 50  0001 C CNN
-F 3 "~" H 6100 4050 50  0001 C CNN
-	1    6100 4050
-	1    0    0    -1  
-$EndComp
-Text Label 5300 2750 0    60   ~ 0
-2
-Wire Wire Line
-	5300 2750 5950 2750
-Text Label 5300 2750 0    60   ~ 0
-2
-Text Label 5300 3400 0    60   ~ 0
-3(**)
-Wire Wire Line
-	5950 3400 5300 3400
-Text Label 5300 3400 0    60   ~ 0
-3(**)
-Text Label 5300 4050 0    60   ~ 0
-4
-Wire Wire Line
-	5300 4050 5950 4050
-Text Label 5300 4050 0    60   ~ 0
-4
-$Comp
-L Device:LED D1
-U 1 1 60E4CED8
-P 6100 2750
-F 0 "D1" H 6093 2967 50  0000 C CNN
-F 1 "LED" H 6093 2876 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm" H 6100 2750 50  0001 C CNN
-F 3 "~" H 6100 2750 50  0001 C CNN
-	1    6100 2750
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:Speaker LS1
 U 1 1 60E5AC0D
-P 8000 3400
-F 0 "LS1" H 8170 3396 50  0000 L CNN
-F 1 "Speaker" H 8170 3305 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 8000 3200 50  0001 C CNN
-F 3 "~" H 7990 3350 50  0001 C CNN
-	1    8000 3400
+P 6800 3350
+F 0 "LS1" H 6970 3346 50  0000 L CNN
+F 1 "Speaker" H 6970 3255 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 6800 3150 50  0001 C CNN
+F 3 "~" H 6790 3300 50  0001 C CNN
+	1    6800 3350
 	1    0    0    -1  
-$EndComp
-Text Label 7150 3400 0    60   ~ 0
-5(**)
-Wire Wire Line
-	7800 3400 7150 3400
-Text Label 7150 3400 0    60   ~ 0
-5(**)
-$Comp
-L power:GND #PWR03
-U 1 1 60E72C85
-P 6550 2750
-F 0 "#PWR03" H 6550 2500 50  0001 C CNN
-F 1 "GND" H 6555 2577 50  0000 C CNN
-F 2 "" H 6550 2750 50  0001 C CNN
-F 3 "" H 6550 2750 50  0001 C CNN
-	1    6550 2750
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:R R1
-U 1 1 60E72C8B
-P 6400 2750
-F 0 "R1" V 6193 2750 50  0000 C CNN
-F 1 "R" V 6284 2750 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6330 2750 50  0001 C CNN
-F 3 "~" H 6400 2750 50  0001 C CNN
-	1    6400 2750
-	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR06
 U 1 1 60E74D34
-P 7500 3500
-F 0 "#PWR06" H 7500 3250 50  0001 C CNN
-F 1 "GND" H 7505 3327 50  0000 C CNN
-F 2 "" H 7500 3500 50  0001 C CNN
-F 3 "" H 7500 3500 50  0001 C CNN
-	1    7500 3500
+P 6300 3450
+F 0 "#PWR06" H 6300 3200 50  0001 C CNN
+F 1 "GND" H 6305 3277 50  0000 C CNN
+F 2 "" H 6300 3450 50  0001 C CNN
+F 3 "" H 6300 3450 50  0001 C CNN
+	1    6300 3450
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:R R4
 U 1 1 60E74D3A
-P 7650 3500
-F 0 "R4" V 7443 3500 50  0000 C CNN
-F 1 "R" V 7534 3500 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7580 3500 50  0001 C CNN
-F 3 "~" H 7650 3500 50  0001 C CNN
-	1    7650 3500
+P 6450 3450
+F 0 "R4" V 6243 3450 50  0000 C CNN
+F 1 "R" V 6334 3450 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6380 3450 50  0001 C CNN
+F 3 "~" H 6450 3450 50  0001 C CNN
+	1    6450 3450
 	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	6250 3400 6250 2750
-Connection ~ 6250 2750
-Wire Wire Line
-	6250 4050 6250 3400
-Connection ~ 6250 3400
 $Comp
 L Display_Character:WC1602A DS?
 U 1 1 60EADF53
@@ -679,4 +586,22 @@ $EndComp
 Wire Wire Line
 	5450 5150 5150 5150
 Connection ~ 5450 5150
+Text Label 4750 3100 2    60   ~ 0
+9(**)
+Wire Wire Line
+	4100 3100 4750 3100
+Text Label 4750 3100 2    60   ~ 0
+9(**)
+Text Label 4750 3300 2    60   ~ 0
+10(**/SS)
+Wire Wire Line
+	4750 3300 4100 3300
+Text Label 4750 3300 2    60   ~ 0
+10(**/SS)
+Text Label 6200 3350 2    60   ~ 0
+A2
+Wire Wire Line
+	6200 3350 6600 3350
+Text Label 6200 3350 2    60   ~ 0
+A2
 $EndSCHEMATC
