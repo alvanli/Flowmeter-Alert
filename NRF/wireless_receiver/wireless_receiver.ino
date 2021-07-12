@@ -21,6 +21,12 @@ void loop(){
     radio.read(&res2, sizeof(res2)); 
     Serial.println("res 1: " + String(res1));
     Serial.println("res 2: " + String(res2));
+    int ballLoc = getBallLocation(res1, res2);
+    Serial.println("Ball location: " + String(ballLoc));
   }
   delay(5);
+}
+
+int getBallLocation(res1, res2) {
+  
 }
