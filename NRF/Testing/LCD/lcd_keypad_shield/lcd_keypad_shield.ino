@@ -15,6 +15,16 @@ const String MENU_ITEMS[] = {ALARM_STR, THRESHOLD_STR, LED_STR, RESET_STR, BACK}
 const int MENU_SIZE = 5;
 int THRESHOLD = 1000;
 
+int state = 0; // 0: Warning, 1: Menu, 2: Thres Menu
+int prevState = 0;
+int menuState = 2; // 0: ALARM_STR, 1: THRESHOLD_STR, 2: LED_STR, 3: RESET, 4: BACK
+boolean led_state = true;
+boolean alarm_state = true;
+
+String prevMsg1 = "";
+String prevMsg2 = "";
+
+
 void setup() {
   Serial.begin(9600);
   lcd.begin(16, 2); // dimensions of the display
@@ -26,14 +36,6 @@ void setup() {
   pinMode(SW, INPUT_PULLUP); 
 }
 
-int state = 0; // 0: Warning, 1: Menu, 2: Thres Menu
-int prevState = 0;
-int menuState = 2; // 0: ALARM_STR, 1: THRESHOLD_STR, 2: LED_STR
-boolean led_state = true;
-boolean alarm_state = true;
-
-String prevMsg1 = "";
-String prevMsg2 = "";
 
 void displayLCD(String message1, String message2){
   if (!prevMsg1.equals(message1) && !prevMsg2.equals(message2)){
@@ -130,10 +132,6 @@ void showMenu(int lcdKey) {
 void loop() {
   lcdKey = readLCDButtons();
   showMenu(lcdKey);
-  //Serial.println(SW_state);
-  //Serial.println(xPosition);
-  //Serial.println(yPosition);
-  //delay(1000);
 
   switch(lcdKey) {
     case BTN_SELECT: 
