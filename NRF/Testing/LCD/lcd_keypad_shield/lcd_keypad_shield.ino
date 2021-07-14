@@ -222,8 +222,8 @@ void playAlarm(){
       Serial.println(melody[thisNote]);
       
       delay(noteDuration);
-      
-      noTone(A2);
+      if (millis() - lastInterruptTime > noteDuration) noTone(A2);
+  
     } 
   }
 }

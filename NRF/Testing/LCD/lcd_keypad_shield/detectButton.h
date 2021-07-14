@@ -9,7 +9,7 @@ int SW = 8;
 
 int xPosition = 0;
 int yPosition = 0;
-int SW_state = 0;
+int SW_state = 1;
 
 static unsigned long lastInterruptTime = millis();
 
