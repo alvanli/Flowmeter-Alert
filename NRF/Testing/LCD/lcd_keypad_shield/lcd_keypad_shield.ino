@@ -218,12 +218,10 @@ void playAlarm(){
   if (alarm_state) {
    for (int thisNote = 0; melody[thisNote]!=-1; thisNote++) {
       int noteDuration = speed*noteDurations[thisNote];
+      long lastNoteTime = millis();
       tone(A2, melody[thisNote],noteDuration*.95);
       Serial.println(melody[thisNote]);
-      
-      delay(noteDuration);
-      if (millis() - lastInterruptTime > noteDuration) noTone(A2);
-  
+      if (millis() - lastNoteTime > noteDuration) noTone(A2);
     } 
   }
 }
