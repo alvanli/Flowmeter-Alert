@@ -4,7 +4,7 @@
 
 int speed=90;  //higher value, slower notes
 void setup() {
-  pinMode(A2, OUTPUT);
+  pinMode(A3, OUTPUT);
   Serial.begin(9600);
   playAlarm();
 }
@@ -21,7 +21,7 @@ int noteDurations[] = {       //duration of the notes
 void playAlarm(){
   for (int thisNote = 0; melody[thisNote]!=-1; thisNote++) {
     int noteDuration = speed*noteDurations[thisNote];
-    tone(A2, melody[thisNote],noteDuration*.95);
+    tone(A3, melody[thisNote],noteDuration*.95);
     Serial.println(melody[thisNote]);
     
     delay(noteDuration);

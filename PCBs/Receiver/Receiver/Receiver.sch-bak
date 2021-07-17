@@ -598,4 +598,81 @@ Wire Wire Line
 	4750 3300 4100 3300
 Text Label 4750 3300 2    60   ~ 0
 10(**/SS)
+Text Label 6200 3350 2    60   ~ 0
+A2
+Wire Wire Line
+	6200 3350 6600 3350
+Text Label 6200 3350 2    60   ~ 0
+A2
+$Comp
+L alvin:joystick U?
+U 1 1 60EEFA48
+P 6550 4550
+F 0 "U?" H 6828 4354 50  0000 L CNN
+F 1 "joystick" H 6828 4263 50  0000 L CNN
+F 2 "" H 6700 4650 50  0001 C CNN
+F 3 "" H 6700 4650 50  0001 C CNN
+	1    6550 4550
+	1    0    0    -1  
+$EndComp
+Text Label 6450 4100 1    60   ~ 0
+A0
+Wire Wire Line
+	6450 4100 6450 4500
+Text Label 6450 4100 1    60   ~ 0
+A0
+Text Label 6550 4100 1    60   ~ 0
+A1
+Wire Wire Line
+	6550 4500 6550 4100
+Text Label 6550 4100 1    60   ~ 0
+A1
+$Comp
+L power:+5V #PWR?
+U 1 1 60EF7360
+P 6650 4050
+F 0 "#PWR?" H 6650 3900 50  0001 C CNN
+F 1 "+5V" V 6650 4250 28  0000 C CNN
+F 2 "" H 6650 4050 50  0000 C CNN
+F 3 "" H 6650 4050 50  0000 C CNN
+	1    6650 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 4050 6650 4500
+$Comp
+L power:+5V #PWR?
+U 1 1 60EF7367
+P 6650 4050
+F 0 "#PWR?" H 6650 3900 50  0001 C CNN
+F 1 "+5V" V 6650 4250 28  0000 C CNN
+F 2 "" H 6650 4050 50  0000 C CNN
+F 3 "" H 6650 4050 50  0000 C CNN
+	1    6650 4050
+	1    0    0    -1  
+$EndComp
+Connection ~ 6650 4050
+Text Label 6350 3850 3    60   ~ 0
+8
+Wire Wire Line
+	6350 3850 6350 4500
+Text Label 6350 3850 3    60   ~ 0
+8
+$Comp
+L power:GND #PWR?
+U 1 1 60EFC592
+P 6950 4350
+F 0 "#PWR?" H 6950 4100 50  0001 C CNN
+F 1 "GND" H 6955 4177 50  0000 C CNN
+F 2 "" H 6950 4350 50  0001 C CNN
+F 3 "" H 6950 4350 50  0001 C CNN
+	1    6950 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6750 4500 6750 4150
+Wire Wire Line
+	6750 4150 6950 4150
+Wire Wire Line
+	6950 4150 6950 4350
 $EndSCHEMATC

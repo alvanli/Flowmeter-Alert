@@ -1,0 +1,22 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# joystick
+#
+DEF joystick U 0 40 Y Y 1 F N
+F0 "U" 0 -400 50 H V C CNN
+F1 "joystick" 0 -600 50 H V C CNN
+F2 "" 150 100 50 H I C CNN
+F3 "" 150 100 50 H I C CNN
+DRAW
+C 0 -400 141 0 1 0 N
+S -250 -50 250 -550 0 1 0 f
+X 5V ~ 100 50 100 D 50 50 1 1 W
+X GND ~ 200 50 100 D 50 50 1 1 w
+X SW ~ -200 50 100 D 50 50 1 1 I
+X VRX ~ 0 50 100 D 50 50 1 1 I
+X VRY ~ -100 50 100 D 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+#End Library

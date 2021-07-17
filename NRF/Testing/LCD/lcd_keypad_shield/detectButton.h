@@ -24,10 +24,10 @@ int readLCDButtons() {
       lastInterruptTime = millis();
     } else if(millis() - lastInterruptTime > 500) {
         if (yPosition < 100) {
-          lcdKey = BTN_UP;
+          lcdKey = BTN_DOWN;
           lastInterruptTime = millis();
         } else if (yPosition > 900) {
-          lcdKey = BTN_DOWN;
+          lcdKey = BTN_UP;
           lastInterruptTime = millis();
         } 
     }
