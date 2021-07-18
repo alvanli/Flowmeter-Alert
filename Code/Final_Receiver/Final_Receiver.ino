@@ -47,6 +47,11 @@ void loop() {
       break;
   }
 
+  radioRead();
+  
+}
+
+void radioRead() {
   if (radio.available()){              //Looking for the data.
     int res1 = 0;
     int res2 = 0; //Saving the incoming data
@@ -70,7 +75,6 @@ void loop() {
       //Serial.println("ERROR: ball is too high and too low at the same time");
     //}
   }
-  
 }
 
 void getBallLocation(int res1, int res2) {
