@@ -1,4 +1,4 @@
-void calib_photores(int photoPin, int cycles, int laser, int t) {
+int calib_photores(int photoPin, int cycles, int laser, int t) {
   float sumDim;
   float sumBright;
   // Ambient light
