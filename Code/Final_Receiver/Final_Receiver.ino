@@ -1,8 +1,8 @@
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
-#include "C:/Users/brian/Desktop/Flowmeter-Alert/library/detectButton.h"
-#include "C:/Users/brian/Desktop/Flowmeter-Alert/library/lcd.h"
+#include "C:/Users/brian/Desktop/Flowmeter-Alert/Code/library/detectButton.h"
+#include "C:/Users/brian/Desktop/Flowmeter-Alert/Code/library/lcd.h"
 
 int lcdKey = 0;
 
