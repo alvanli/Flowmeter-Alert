@@ -1,6 +1,6 @@
-const int BTN_SELECT = A0;
-const int BTN_UP = A1;
-const int BTN_DOWN = A2;
+const int BTN_SELECT = 42;
+const int BTN_UP = 43;
+const int BTN_DOWN = 44;
 const int BTN_THRESHOLD = 1000;
 
 const int VRx = A0;
@@ -24,10 +24,10 @@ int readLCDButtons() {
       lastInterruptTime = millis();
     } else if(millis() - lastInterruptTime > 500) {
         if (yPosition < 100) {
-          lcdKey = BTN_UP;
+          lcdKey = BTN_DOWN;
           lastInterruptTime = millis();
         } else if (yPosition > 900) {
-          lcdKey = BTN_DOWN;
+          lcdKey = BTN_UP;
           lastInterruptTime = millis();
         } 
     }
