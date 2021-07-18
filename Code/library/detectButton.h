@@ -3,9 +3,9 @@ const int BTN_UP = A1;
 const int BTN_DOWN = A2;
 const int BTN_THRESHOLD = 1000;
 
-int VRx = A0;
-int VRy = A1;
-int SW = 8;
+const int VRx = A0;
+const int VRy = A1;
+const int SW = 8;
 
 int xPosition = 0;
 int yPosition = 0;

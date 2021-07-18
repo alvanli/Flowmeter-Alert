@@ -3,7 +3,7 @@
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
-#include "C:/Users/brian/Desktop/Flowmeter-Alert/library/pitches.h"
+#include "C:/Users/brian/Desktop/Flowmeter-Alert/library/alarm.h"
 
 LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
 
@@ -34,21 +34,6 @@ const byte address[6] = "00001";
 bool tooHigh = false;
 bool tooLow = false;
 
-unsigned long lastTime = 0;
-int currNote = 0;
-bool playing = false;
-
-int melody[] = {
-  NOTE_G4, NOTE_G4, NOTE_G4, NOTE_DS3, NOTE_AS4, NOTE_G4, NOTE_DS3, NOTE_AS4, NOTE_G4, END
-};
-
-// note durations: 8 = quarter note, 4 = 8th note, etc.
-int noteDurations[] = {       //duration of the notes
-  2, 2, 2, 2, 1, 2, 2, 1, 2
-};
-
-int speed=90;  //higher value, slower notes
-
 void setup() {
   Serial.begin(9600);
   lcd.begin(16, 2); // dimensions of the display
@@ -59,14 +44,14 @@ void setup() {
   pinMode(VRy, INPUT);
   pinMode(SW, INPUT_PULLUP); 
 
-  pinMode(A2, OUTPUT);
+  pinMode(speaker, OUTPUT);
 
   radio.begin();
   radio.openReadingPipe(0, address);   //Setting the address at which we will receive the data
   radio.setPALevel(RF24_PA_MIN);       //You can set this as minimum or maximum depending on the distance between the transmitter and receiver.
   radio.startListening();
 
-  lastTime = millis();
+  lastTime = millis(); //DELETE
 }
 
 
@@ -180,8 +165,6 @@ void loop() {
       break;
   }
 
-  alarmCheck();
-
   if (radio.available()){              //Looking for the data.
     int res1 = 0;
     int res2 = 0; //Saving the incoming data
@@ -205,6 +188,9 @@ void loop() {
       //Serial.println("ERROR: ball is too high and too low at the same time");
     //}
   }
+
+  alarmCheck(alarm_state);
+  
 }
 
 void getBallLocation(int res1, int res2) {
@@ -219,49 +205,5 @@ void getBallLocation(int res1, int res2) {
   }
   if (res2 == -1){
     tooLow = false;
-  }
-}
-
-/*
-void playAlarm(){
-  if (alarm_state) {
-   for (int thisNote = 0; melody[thisNote]!=-1; thisNote++) {
-      int noteDuration = speed*noteDurations[thisNote];
-      tone(A2, melody[thisNote],noteDuration*.95);
-      Serial.println(melody[thisNote]);
-      
-      delay(noteDuration);
-      if (millis() - lastInterruptTime > noteDuration) noTone(A2);
-  
-    } 
-  }
-}
-*/
-
-// Does alarm stuff - check time, play, and stop
-void alarmCheck() {
-  if (alarm_state) {
-    if (playing) {
-      int noteDuration = speed*noteDurations[currNote]; // set dur
-      if ((millis() - lastTime) >= noteDuration) {
-        if (melody[currNote + 1] == -1) { // reset vars and stop tone if playing ended
-          playing = false; 
-          currNote = 0;
-          lastTime = millis();
-          noTone(A2);
-        } else { // increment to next note
-          currNote += 1;
-          noteDuration = speed*noteDurations[currNote];
-          lastTime = millis();
-        }
-      } else { // play tone
-        tone(A2, melody[currNote]); // this'll constantly send a freq to the pin i hope it doesnt lag
-      }
-    } else {
-      lastTime = millis(); // keep time counter updated when alarm not playing
-    }
-  } else {
-    lastTime = millis(); // keep time counter updated when alarm not playing
-    noTone(A2); // make sure to turn off if alarm is set to not play
   }
 }
