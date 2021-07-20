@@ -8,6 +8,8 @@
 LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
 
 int lcdKey = 0;
+const int buzzer = 9;
+const int led = 13;
 
 String warning_string = "DEFAULT";
 const String ALARM_STR = "Alarm";
@@ -56,6 +58,8 @@ void setup() {
   pinMode(SW, INPUT_PULLUP); 
 
   pinMode(A2, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+  pinMode(led, OUTPUT);
 
   radio.begin();
   radio.openReadingPipe(0, address);   //Setting the address at which we will receive the data
@@ -118,6 +122,7 @@ void showMenu(int lcdKey) {
     }else if (lcdKey == BTN_UP){
       menuState = menuState == 0 ? MENU_SIZE-1 : menuState - 1;
     }else if (lcdKey == BTN_SELECT){
+      soundBuzzer();
       if (menuState == 1){
         state = 2;
         prevState = 1;
@@ -186,11 +191,14 @@ void loop() {
     Serial.println("Too low?: " + String(tooLow));
     if (tooHigh && !tooLow) {
       warning_string = "TOO HIGH";
+      if (led_state) digitalWrite(led, HIGH);
       playAlarm();
     } else if (!tooHigh && tooLow) {
+      if (led_state) digitalWrite(led, HIGH);
       warning_string = "TOO LOW";
       playAlarm();
     } else if (!tooHigh && !tooLow) {
+      digitalWrite(led, LOW);
       warning_string = "GOOD";
     }
     //if (tooHigh && tooLow){
@@ -226,4 +234,13 @@ void playAlarm(){
   
     } 
   }
+}
+
+void soundBuzzer() {
+  // benchmarkTime = millis();
+  tone(buzzer, 1000); 
+  delay(500);        
+  noTone(buzzer);     
+  delay(500);
+  // if (millis() - benchmarkTime > 500) noTone(buzzer);
 }
