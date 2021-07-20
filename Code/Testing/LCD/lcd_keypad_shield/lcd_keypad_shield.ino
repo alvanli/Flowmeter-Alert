@@ -8,8 +8,8 @@
 LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
 
 int lcdKey = 0;
-const int buzzer = 9;
-const int led = 13;
+const int buzzer = A2;
+const int led = A3;
 
 String warning_string = "DEFAULT";
 const String ALARM_STR = "Alarm";
