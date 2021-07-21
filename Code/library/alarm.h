@@ -17,9 +17,9 @@ const int noteDurations[] = {       //duration of the notes
 
 const int speed=90;  //higher value, slower notes
 
-void alarmCheck(bool alarm_state) {
+void alarmCheck(bool alarm_state, bool flash) {
   if (alarm_state) {
-    if (playing) {
+    if (playing && !flash) {
       int noteDuration = speed*noteDurations[currNote]; // set dur
       if ((millis() - lastTime) >= noteDuration) {
         if (melody[currNote + 1] == -1) { // reset vars and stop tone if playing ended

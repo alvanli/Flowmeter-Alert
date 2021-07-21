@@ -24,10 +24,28 @@ boolean alarm_state = true; // HAVE TO RETURN ALARM STATE!!!!
 String prevMsg1 = "";
 String prevMsg2 = "";
 
+unsigned long sometime = 0;
+bool showFlash = false;
+bool firstFlash = true;
+
+byte square[] = {
+  B11111, 
+  B11111, 
+  B11111, 
+  B11111, 
+  B11111, 
+  B11111, 
+  B11111, 
+  B11111
+};
+
 void lcdInit() {
     lcd.begin(16, 2); // dimensions of the display
     lcd.setCursor(0, 0); // position of the cursor
+    lcd.createChar(0, square);
     lcd.print(warning_string);
+
+    sometime = millis();
 }
 
 void setWarningString(String str) {
@@ -43,6 +61,18 @@ void displayLCD(String message1, String message2){
     lcd.print(message1);
     lcd.setCursor(0, 1);
     lcd.print(message2);
+  }
+}
+
+void displayFlash() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  for (int i = 0; i < 16; i++) {
+    lcd.write(byte(0));
+  }
+  lcd.setCursor(0, 1);
+  for (int i = 0; i < 16; i++) {
+    lcd.write(byte(0));
   }
 }
 
@@ -76,13 +106,27 @@ void forceRefresh(){
 // also runs the alarm stuff now
 void showMenuAlarmCheck(int lcdKey) {
   if (state == 0){ 
-    displayLCD(warning_string, "");
-    if (lcdKey == BTN_SELECT) {
-      state = 1;
-      prevState = 0;
+    if (showFlash) {
+      if ((millis() - sometime) >= 500) { // play alarm tone and switch screen to warning string
+        showFlash = false;
+        firstFlash = true;
+        playing = true;
+        sometime = millis();
+      } else if (firstFlash) { // set screen to flash
+        displayFlash();
+        firstFlash = false;
+      }
+    } else {
+      sometime = millis();
+      displayLCD(warning_string, "");
+      if (lcdKey == BTN_SELECT) {
+        state = 1;
+        prevState = 0;
+      }
     }
   }
   else if (state == 1){ 
+    sometime = millis();
     mainMenuDisplay(menuState);
     if (lcdKey == BTN_DOWN){
       menuState = menuState >= MENU_SIZE -1 ? 0 : menuState + 1;
@@ -112,6 +156,8 @@ void showMenuAlarmCheck(int lcdKey) {
     }
   }
   else if (state == 2) { 
+    sometime = millis();
+
     displayLCD(THRESHOLD_STR, String(THRESHOLD));
 
     if(lcdKey == BTN_DOWN){
@@ -126,6 +172,6 @@ void showMenuAlarmCheck(int lcdKey) {
     }
   }
 
-  alarmCheck(alarm_state);
+  alarmCheck(alarm_state, showFlash);
 
 }

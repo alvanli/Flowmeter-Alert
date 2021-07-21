@@ -56,15 +56,15 @@ void radioRead() {
     if (pos == 1) {
       setWarningString("TOO HIGH");
       forceRefresh();
-      playing = true; // Toggle bool to play tone
+      showFlash = true; // start alarm sequence
     } else if (pos == -1) {
       setWarningString("TOO LOW");
       forceRefresh();
-      playing = true; // Toggle bool to play tone
+      showFlash = true; // start alarm sequence
     } else if (!pos) {
       setWarningString("GOOD");
       forceRefresh();
-      playing = false;
+      showFlash = false; // start alarm sequence
     }
   }
 }
