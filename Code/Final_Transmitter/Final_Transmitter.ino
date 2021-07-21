@@ -67,5 +67,5 @@ void loop(){
     radio.write(&temp, sizeof(temp));
   }
     
-  delay(1000); 
+  delay(100); 
 }
