@@ -52,19 +52,26 @@ void loop() {
 
 void radioRead() {
   if (radio.available()){              //Looking for the data.
-    radio.read(&pos, sizeof(pos));    //Reading the data
-    if (pos == 1) {
-      setWarningString("TOO HIGH");
-      forceRefresh();
-      showFlash = true; // start alarm sequence
-    } else if (pos == -1) {
-      setWarningString("TOO LOW");
-      forceRefresh();
-      showFlash = true; // start alarm sequence
-    } else if (!pos) {
-      setWarningString("GOOD");
-      forceRefresh();
-      showFlash = false; // start alarm sequence
+
+    int temp = 0;
+    radio.read(&temp, sizeof(temp));    //Reading the data
+
+    if (temp != pos) {
+      if (temp == 1) {
+        setWarningString("TOO HIGH");
+        forceRefresh();
+        showFlash = true; // start alarm sequence
+      } else if (temp == -1) {
+        setWarningString("TOO LOW");
+        forceRefresh();
+        showFlash = true; // start alarm sequence
+      } else if (!temp) {
+        setWarningString("GOOD");
+        forceRefresh();
+        showFlash = false; // start alarm sequence
+      }
+      pos = temp;
     }
+    
   }
 }

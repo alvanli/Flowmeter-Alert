@@ -98,7 +98,7 @@ void mainMenuDisplay(int menuState){
   displayLCD(firstMessage, secondMessage);
 }
 
-void forceRefresh(){
+void forceRefresh() {
   prevMsg1 = "";
   prevMsg2 = "";
 }
@@ -107,7 +107,7 @@ void forceRefresh(){
 void showMenuAlarmCheck(int lcdKey) {
   if (state == 0){ 
     if (showFlash) {
-      if ((millis() - sometime) >= 500) { // play alarm tone and switch screen to warning string
+      if ((millis() - sometime) >= 300) { // play alarm tone and switch screen to warning string
         showFlash = false;
         firstFlash = true;
         playing = true;

@@ -6,9 +6,6 @@
 RF24 radio(9, 10); // CE, CSN         
 const byte address[6] = "00001";
 
-bool blocked1 = false; // true if above threshold (blocked), false if below (not blocked)
-bool blocked2 = false;
-
 int photo1 = A0; // higher resistor
 int photo2 = A1; // lower resistor
 
@@ -43,29 +40,12 @@ void setup(){
 void loop(){
   int photoValue1 = analogRead(photo1);
   int photoValue2 = analogRead(photo2);
+  
   Serial.println("Photo resistor 1: " + String(photoValue1));
   Serial.println("Photo resistor 2: " + String(photoValue2));
-
-  int val1 = threshold_check(photoValue1, blocked1, threshold1);
-  int val2 = threshold_check(photoValue2, blocked2, threshold2);
   
-  if (val1 == 1){
-    blocked1 = true;
-  }
-  if (val1 == -1){
-    blocked1 = false;
-  }
-  if (val2 == 1){
-    blocked2 = true;
-  }
-  if (val2 == -1){
-    blocked2 = false;
-  }
-
-  if (val1 != 0 || val2 != 0) {
-    int temp = getBallLocation(val1, val2);
-    radio.write(&temp, sizeof(temp));
-  }
+  int temp = getBallLocation(photoValue1, photoValue2, threshold1, threshold2);
+  radio.write(&temp, sizeof(temp));
     
   delay(100); 
 }
