@@ -32,6 +32,8 @@ void setup() {
   radio.begin();                  //Starting the Wireless communication
   printf_begin();
   check_radio();
+//  analogWrite(laser1,255);
+//  analogWrite(laser2,255);
 }
 
 void test_photoresistor(String whichResistor){
@@ -67,5 +69,6 @@ void check_radio(){
 }
 
 void loop() {
-  test_photoresistor("BOTH");
+//  test_photoresistor("BOTH");
+  
 }

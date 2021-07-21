@@ -1,8 +1,8 @@
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
-#include "C:/Users/brian/Desktop/Flowmeter-Alert/Code/library/detectButton.h"
-#include "C:/Users/brian/Desktop/Flowmeter-Alert/Code/library/lcd.h"
+#include "C:/DATA/Git/Flowmeter-Alert/Code/library/detectButton.h"
+#include "C:/DATA/Git/Flowmeter-Alert/Code/library/lcd.h"
 
 int lcdKey = 0;
 
@@ -29,12 +29,10 @@ void setup() {
 }
 
 void loop() {
-  lcdKey = readLCDButtons();
-  showMenuAlarmCheck(lcdKey);
-
-  switch(lcdKey) { // Delete??
+    switch(lcdKey) { // Delete??
     case BTN_SELECT: 
       Serial.println("select");
+      tone(speaker_pin, NOTE_A5, 1000);
       break;
     case BTN_UP: 
       Serial.println("up");
@@ -45,33 +43,29 @@ void loop() {
     default: 
       break;
   }
-
-  radioRead();
   
+  lcdKey = readLCDButtons();
+  showMenuAlarmCheck(lcdKey);
+  radioRead();
+   
 }
 
 void radioRead() {
   if (radio.available()){              //Looking for the data.
-
-    int temp = 0;
-    radio.read(&temp, sizeof(temp));    //Reading the data
-
-    if (temp != pos) {
-      if (temp == 1) {
-        setWarningString("TOO HIGH");
-        forceRefresh();
-        showFlash = true; // start alarm sequence
-      } else if (temp == -1) {
-        setWarningString("TOO LOW");
-        forceRefresh();
-        showFlash = true; // start alarm sequence
-      } else if (!temp) {
-        setWarningString("GOOD");
-        forceRefresh();
-        showFlash = false; // start alarm sequence
-      }
-      pos = temp;
+    radio.read(&pos, sizeof(pos));    //Reading the data
+    Serial.println("position: " + String(pos));
+    if (pos == 1) {
+      setWarningString("TOO HIGH");
+      forceRefresh();
+      playing = true; // Toggle bool to play tone
+    } else if (pos == -1) {
+      setWarningString("TOO LOW");
+      forceRefresh();
+      playing = true; // Toggle bool to play tone
+    } else if (pos == 0) {
+      setWarningString("NO WARNING");
+      forceRefresh();
+      playing = false;
     }
-    
   }
 }

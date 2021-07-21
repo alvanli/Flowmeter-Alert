@@ -2,11 +2,12 @@
 #include <nRF24L01.h>
 #include <RF24.h>
 #include <printf.h>
-
+#include "C:/DATA/Git/Flowmeter-Alert/Code/library/pitches.h"
 
 #define CE_PIN   9
 #define CSN_PIN 10
 
+const int speaker = A3;
 const byte thisSlaveAddress[5] = {'R','x','A','A','A'};
 RF24 radio(CE_PIN, CSN_PIN);
 char dataReceived[10];
@@ -33,6 +34,12 @@ void check_radio(){
   delay(waitTime);
 }
 
+void check_sound(){
+  tone(speaker, NOTE_G4, 100);
+  delay(1000);
+  noTone(speaker);
+}
 void loop() {
-  test_photoresistor("BOTH");
+  check_radio();
+  
 }

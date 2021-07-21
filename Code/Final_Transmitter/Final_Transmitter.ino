@@ -1,7 +1,7 @@
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
-#include "C:/Users/brian/Desktop/Flowmeter-Alert/Code/library/transmitter.h"
+#include "C:/DATA/Git/Flowmeter-Alert/Code/library/transmitter.h"
 
 RF24 radio(9, 10); // CE, CSN         
 const byte address[6] = "00001";
@@ -45,6 +45,7 @@ void loop(){
   Serial.println("Photo resistor 2: " + String(photoValue2));
   
   int temp = getBallLocation(photoValue1, photoValue2, threshold1, threshold2);
+  Serial.println("Position: " + String(temp));
   radio.write(&temp, sizeof(temp));
     
   delay(100); 

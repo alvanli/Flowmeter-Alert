@@ -5,7 +5,7 @@ const int speaker_pin = speaker;
 
 LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
 
-String warning_string = "DEFAULT";
+String warning_string = "NO WARNINGS";
 const String ALARM_STR = "Alarm";
 const String THRESHOLD_STR = "Set Threshold";
 const String LED_STR = "LED";
@@ -28,7 +28,7 @@ unsigned long sometime = 0;
 bool showFlash = false;
 bool firstFlash = true;
 
-byte square[] = {
+byte full_square[] = {
   B11111, 
   B11111, 
   B11111, 
@@ -42,7 +42,7 @@ byte square[] = {
 void lcdInit() {
     lcd.begin(16, 2); // dimensions of the display
     lcd.setCursor(0, 0); // position of the cursor
-    lcd.createChar(0, square);
+    lcd.createChar(0, full_square);
     lcd.print(warning_string);
 
     sometime = millis();
@@ -53,7 +53,7 @@ void setWarningString(String str) {
 }
 
 void displayLCD(String message1, String message2){
-  if (!prevMsg1.equals(message1) && !prevMsg2.equals(message2)){
+  if (!prevMsg1.equals(message1) || !prevMsg2.equals(message2)){
     prevMsg1 = message1;
     prevMsg2 = message2;
     lcd.clear();
@@ -118,11 +118,12 @@ void showMenuAlarmCheck(int lcdKey) {
       }
     } else {
       sometime = millis();
+      Serial.println("warning_string: " + warning_string);
       displayLCD(warning_string, "");
-      if (lcdKey == BTN_SELECT) {
-        state = 1;
-        prevState = 0;
-      }
+    }
+    if (lcdKey == BTN_SELECT) {
+      state = 1;
+      prevState = 0;
     }
   }
   else if (state == 1){ 
