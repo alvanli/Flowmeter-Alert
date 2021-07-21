@@ -54,3 +54,13 @@ int threshold_check(int reading, bool blocked, int threshold) {
   }
   return 0;
 }
+
+// 1 = ball too high, -1 = ball too low, 0 = ball in middle
+int getBallLocation(int res1, int res2) {
+  if (res1 == 1){
+    return 1;
+  } else if (res2 == 1){
+    return -1;
+  }
+  return 0;
+}

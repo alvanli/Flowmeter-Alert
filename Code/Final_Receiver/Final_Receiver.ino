@@ -9,8 +9,7 @@ int lcdKey = 0;
 RF24 radio(9, 10); // CE, CSN
 const byte address[6] = "00001";
 
-bool tooHigh = false;
-bool tooLow = false;
+int pos = 0;
 
 void setup() {
   Serial.begin(9600);
@@ -53,41 +52,19 @@ void loop() {
 
 void radioRead() {
   if (radio.available()){              //Looking for the data.
-    int res1 = 0;
-    int res2 = 0; //Saving the incoming data
-    radio.read(&res1, sizeof(res1));    //Reading the data
-    radio.read(&res2, sizeof(res2)); 
-    //Serial.println("res 1: " + String(res1));
-    //Serial.println("res 2: " + String(res2));
-    getBallLocation(res1, res2);
-    Serial.println("Too high?: " + String(tooHigh));
-    Serial.println("Too low?: " + String(tooLow));
-    if (tooHigh && !tooLow) {
+    radio.read(&pos, sizeof(pos));    //Reading the data
+    if (pos == 1) {
       setWarningString("TOO HIGH");
+      forceRefresh();
       playing = true; // Toggle bool to play tone
-    } else if (!tooHigh && tooLow) {
+    } else if (pos == -1) {
       setWarningString("TOO LOW");
+      forceRefresh();
       playing = true; // Toggle bool to play tone
-    } else if (!tooHigh && !tooLow) {
+    } else if (!pos) {
       setWarningString("GOOD");
+      forceRefresh();
+      playing = false;
     }
-    //if (tooHigh && tooLow){
-      //Serial.println("ERROR: ball is too high and too low at the same time");
-    //}
-  }
-}
-
-void getBallLocation(int res1, int res2) {
-  if (res1 == 1){
-    tooHigh = true;
-  }
-  if (res2 == 1){
-    tooLow = true;
-  }
-  if (res1 == -1){
-    tooHigh = false;
-  }
-  if (res2 == -1){
-    tooLow = false;
   }
 }

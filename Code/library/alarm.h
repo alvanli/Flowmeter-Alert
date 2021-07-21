@@ -37,9 +37,12 @@ void alarmCheck(bool alarm_state) {
       }
     } else {
       lastTime = millis(); // keep time counter updated when alarm not playing
+      noTone(speaker); // make sure to turn off if alarm is set to not play
+      currNote = 0;
     }
   } else {
     lastTime = millis(); // keep time counter updated when alarm not playing
     noTone(speaker); // make sure to turn off if alarm is set to not play
+    currNote = 0;
   }
 }

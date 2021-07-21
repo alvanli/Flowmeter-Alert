@@ -63,9 +63,9 @@ void loop(){
   }
 
   if (val1 != 0 || val2 != 0) {
-    radio.write(&val1, sizeof(val1));
-    radio.write(&val2, sizeof(val2));
+    int temp = getBallLocation(val1, val2);
+    radio.write(&temp, sizeof(temp));
   }
-  
+    
   delay(1000); 
 }
