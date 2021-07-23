@@ -69,6 +69,6 @@ void check_radio(){
 }
 
 void loop() {
-//  test_photoresistor("BOTH");
+  test_photoresistor("BOTH");
   
 }

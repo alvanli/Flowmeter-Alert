@@ -1,0 +1,592 @@
+Testing Photoresistors
+Uncovered top resistor: 439
+Please shine laser on top resistor
+Laser'd top resistor: 878
+
+Uncovered bottom resistor: 341
+Please shine laser on top resistor
+Laser'd bottom resistor: 854
+
+Testing Photoresistors
+Uncovered top resistor: 438
+Please shine laser on top resistor
+Laser'd top resistor: 878
+
+Uncovered bottom resistor: 347
+Please shine laser on top resistor
+Laser'd bottom resistor: 854
+
+Testing Photoresistors
+Uncovered top resistor: 433
+Please shine laser on top resistor
+Laser'd top resistor: 877
+
+Uncovered bottom resistor: 329
+Please shine laser on top resistor
+Laser'd bottom resistor: 854
+
+Testing Photoresistors
+Uncovered top resistor: 420
+Please shine laser on top resistor
+Laser'd top resistor: 877
+
+Uncovered bottom resistor: 328
+Please shine laser on top resistor
+Laser'd bottom resistor: 854
+
+Testing Photoresistors
+Uncovered top resistor: 418
+Please shine laser on top resistor
+Laser'd top resistor: 877
+
+Uncovered bottom resistor: 329
+Please shine laser on top resistor
+Laser'd bottom resistor: 854
+
+Testing Photoresistors
+Uncovered top resistor: 421
+Please shine laser on top resistor
+Laser'd top resistor: 877
+
+Uncovered bottom resistor: 340
+Please shine laser on top resistor
+Laser'd bottom resistor: 854
+
+Testing Photoresistors
+Uncovered top resistor: 423
+Please shine laser on top resistor
+Laser'd top resistor: 876
+
+Uncovered bottom resistor: 340
+Please shine laser on top resistor
+Laser'd bottom resistor: 855
+
+Testing Photoresistors
+Uncovered top resistor: 425
+Please shine laser on top resistor
+Laser'd top resistor: 877
+
+Uncovered bottom resistor: 340
+Please shine laser on top resistor
+Laser'd bottom resistor: 854
+
+Testing Photoresistors
+Uncovered top resistor: 425
+Please shine laser on top resistor
+Laser'd top resistor: 877
+
+Uncovered bottom resistor: 342
+Please shine laser on top resistor
+Laser'd bottom resistor: 854
+
+Testing Photoresistors
+Uncovered top resistor: 423
+Please shine laser on top resistor
+Laser'd top resistor: 877
+
+Uncovered bottom resistor: 342
+Please shine laser on top resistor
+Laser'd bottom resistor: 854
+
+Testing Photoresistors
+Uncovered top resistor: 422
+Please shine laser on top resistor
+Laser'd top resistor: 877
+
+Uncovered bottom resistor: 341
+Please shine laser on top resistor
+Laser'd bottom resistor: 854
+
+Testing Photoresistors
+Uncovered top resistor: 423
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 287
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 363
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 287
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 362
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 287
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 361
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 283
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 293
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 294
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 876
+
+Uncovered bottom resistor: 294
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 294
+Please shine laser on top resistor
+Laser'd bottom resistor: 854
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 295
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 294
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 372
+Please shine laser on top resistor
+Laser'd top resistor: 876
+
+Uncovered bottom resistor: 294
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 876
+
+Uncovered bottom resistor: 294
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 294
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 294
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 294
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 293
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 293
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 293
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 293
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 293
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 293
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 293
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 876
+
+Uncovered bottom resistor: 293
+Please shine laser on top resistor
+Laser'd bottom resistor: 852
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 876
+
+Uncovered bottom resistor: 293
+Please shine laser on top resistor
+Laser'd bottom resistor: 854
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 292
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 371
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 292
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 292
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 369
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 292
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 292
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 876
+
+Uncovered bottom resistor: 292
+Please shine laser on top resistor
+Laser'd bottom resistor: 852
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 876
+
+Uncovered bottom resistor: 292
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 876
+
+Uncovered bottom resistor: 291
+Please shine laser on top resistor
+Laser'd bottom resistor: 852
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 876
+
+Uncovered bottom resistor: 292
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 292
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 292
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 292
+Please shine laser on top resistor
+Laser'd bottom resistor: 852
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 876
+
+Uncovered bottom resistor: 292
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 370
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 292
+Please shine laser on top resistor
+Laser'd bottom resistor: 853
+
+Testing Photoresistors
+Uncovered top resistor: 369
+Please shine laser on top resistor
+Laser'd top resistor: 875
+
+Uncovered bottom resistor: 292
+Please shine laser on top resistor
+Laser'd bottom resistor: 855
+
+Testing Photoresistors
+Uncovered top resistor: 538
+Please shine laser on top resistor
+Laser'd top resistor: 881
+
+Uncovered bottom resistor: 396
+Please shine laser on top resistor
+Laser'd bottom resistor: 858
+
+Testing Photoresistors
+Uncovered top resistor: 563
+Please shine laser on top resistor
+Laser'd top resistor: 890
+
+Uncovered bottom resistor: 480
+Please shine laser on top resistor
+Laser'd bottom resistor: 864
+
+Testing Photoresistors
+Uncovered top resistor: 484
+Please shine laser on top resistor
+Laser'd top resistor: 885
+
+Uncovered bottom resistor: 456
+Please shine laser on top resistor
+Laser'd bottom resistor: 862
+
+Testing Photoresistors
+Uncovered top resistor: 600
+Please shine laser on top resistor
+Laser'd top resistor: 885
+
+Uncovered bottom resistor: 456
+Please shine laser on top resistor
+Laser'd bottom resistor: 861
+
+Testing Photoresistors
+Uncovered top resistor: 506
+Please shine laser on top resistor
+Laser'd top resistor: 886
+
+Uncovered bottom resistor: 525
+Please shine laser on top resistor
+Laser'd bottom resistor: 861
+
+Testing Photoresistors
+Uncovered top resistor: 505
+Please shine laser on top resistor
+Laser'd top resistor: 887
+
+Uncovered bottom resistor: 483
+Please shine laser on top resistor
+Laser'd bottom resistor: 862
+
+Testing Photoresistors
+Uncovered top resistor: 517
+Please shine laser on top resistor
+Laser'd top resistor: 887
+
+Uncovered bottom resistor: 488
+Please shine laser on top resistor
+Laser'd bottom resistor: 861
+
+Testing Photoresistors
+Uncovered top resistor: 502
+Please shine laser on top resistor
+Laser'd top resistor: 886
+
+Uncovered bottom resistor: 467
+Please shine laser on top resistor
+Laser'd bottom resistor: 858
+
+Testing Photoresistors
+Uncovered top resistor: 425
+Please shine laser on top resistor
+Laser'd top resistor: 883
+
+Uncovered bottom resistor: 396
+Please shine laser on top resistor
+Laser'd bottom resistor: 856
+
+Testing Photoresistors
+Uncovered top resistor: 519
+Please shine laser on top resistor
+Laser'd top resistor: 885
+
+Uncovered bottom resistor: 529
+Please shine laser on top resistor
+Laser'd bottom resistor: 864
+
+Testing Photoresistors
+Uncovered top resistor: 527
+Please shine laser on top resistor
+Laser'd top resistor: 886
+
+Uncovered bottom resistor: 534
+Please shine laser on top resistor
+Laser'd bottom resistor: 881
+
+Testing Photoresistors
+Uncovered top resistor: 774
+Please shine laser on top resistor
+Laser'd top resistor: 908
+
+Uncovered bottom resistor: 744
+Please shine laser on top resistor
+Laser'd bottom resistor: 887
+
+Testing Photoresistors
+Uncovered top resistor: 775
+Please shine laser on top resistor
+Laser'd top resistor: 909
+
+Uncovered bottom resistor: 744
+Please shine laser on top resistor
+Laser'd bottom resistor: 887
+
+Testing Photoresistors
+Uncovered top resistor: 774
+Please shine laser on top resistor
+Laser'd top resistor: 908
+
+Uncovered bottom resistor: 743
+Please shine laser on top resistor
+Laser'd bottom resistor: 887
+
+Testing Photoresistors
+Uncovered top resistor: 773
+Please shine laser on top resistor
+Laser'd top resistor: 907
+
+Uncovered bottom resistor: 342
+Please shine laser on top resistor
+Laser'd bottom resistor: 855
+
+Testing Photoresistors
+Uncovered top resistor: 379
+Please shine laser on top resistor
+Laser'd top resistor: 880
+
+Uncovered bottom resistor: 340
+Please shine laser on top resistor
