@@ -8,16 +8,16 @@ int calib_photores(int photoPin, int cycles, int laser, int t) {
   analogWrite(laser, 0);
   for (int i = 0; i < cycles; i++) {
     sumDim += analogRead(photoPin) / cycles;
-    delay(200);
+    delay(50);
   }
   // Laser light
   analogWrite(laser, 255);
   for (int i = 0; i < cycles; i++) {
     sumBright += analogRead(photoPin) / cycles;
-    delay(200);
+    delay(50);
   }
   analogWrite(laser, 0);
-  int threshold = int((sumDim + 4 * sumBright) / 5);
+  int threshold = int((sumDim + sumBright) / 2);
   return threshold;
 }
 
@@ -50,7 +50,7 @@ void eval_threshold(int photoPin, int laser, int threshold) {
 int getBallLocation(int res1, int res2, int thresh1, int thresh2) {
   bool topTriggered = res1 < thresh1;
   bool bottomTriggered = res2 < thresh2;
-  Serial.println("thresh1-2 "+ String(thresh1) + " " + String(thresh2));
+  // Serial.println("thresh1-2 "+ String(thresh1) + " " + String(thresh2));
   Serial.println("top-bottom-" + String(topTriggered) + " " + String(bottomTriggered));
   if (topTriggered) return 1;
   if (bottomTriggered) return -1;

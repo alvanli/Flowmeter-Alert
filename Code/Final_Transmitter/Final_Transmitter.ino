@@ -28,8 +28,8 @@ void setup(){
   radio.setPALevel(RF24_PA_MIN);  
   radio.stopListening(); 
   
-  threshold1 = calib_photores(photo1, 10, laser1, 0);
-  threshold2 = calib_photores(photo2, 10, laser2, 1);
+  threshold1 = calib_photores(photo1, 50, laser1, 0);
+  threshold2 = calib_photores(photo2, 50, laser2, 1);
   Serial.println("Threshold 1: " + String(threshold1));
   Serial.println("Threshold 2: " + String(threshold2));
 
@@ -41,8 +41,8 @@ void loop(){
   int photoValue1 = analogRead(photo1);
   int photoValue2 = analogRead(photo2);
   
-  Serial.println("Photo resistor 1: " + String(photoValue1));
-  Serial.println("Photo resistor 2: " + String(photoValue2));
+//  Serial.println("Photo resistor 1: " + String(photoValue1));
+//  Serial.println("Photo resistor 2: " + String(photoValue2));
   
   int temp = getBallLocation(photoValue1, photoValue2, threshold1, threshold2);
   Serial.println("Position: " + String(temp));

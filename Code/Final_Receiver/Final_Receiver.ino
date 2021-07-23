@@ -9,7 +9,7 @@ int lcdKey = 0;
 RF24 radio(9, 10); // CE, CSN
 const byte address[6] = "00001";
 
-int pos = 0;
+int pos = 0;  
 
 void setup() {
   Serial.begin(9600);
@@ -50,22 +50,28 @@ void loop() {
    
 }
 
+int prev_pos = -2;
 void radioRead() {
   if (radio.available()){              //Looking for the data.
     radio.read(&pos, sizeof(pos));    //Reading the data
     Serial.println("position: " + String(pos));
-    if (pos == 1) {
-      setWarningString("TOO HIGH");
-      forceRefresh();
-      playing = true; // Toggle bool to play tone
-    } else if (pos == -1) {
-      setWarningString("TOO LOW");
-      forceRefresh();
-      playing = true; // Toggle bool to play tone
-    } else if (pos == 0) {
-      setWarningString("NO WARNING");
-      forceRefresh();
-      playing = false;
+    if (pos != prev_pos){
+      if (pos == 1) {
+        setWarningString("TOO HIGH");
+        forceRefresh();
+        showFlash = true;
+        playing = true; // Toggle bool to play tone
+      } else if (pos == -1) {
+        setWarningString("TOO LOW");
+        forceRefresh();
+        showFlash = true;
+        playing = true; // Toggle bool to play tone
+      } else if (pos == 0) {
+        setWarningString("NO WARNING");
+        forceRefresh();
+        playing = false;
+      }
+      prev_pos = pos;
     }
   }
 }

@@ -50,6 +50,7 @@ void lcdInit() {
 
 void setWarningString(String str) {
     warning_string = str;
+    state = 0;
 }
 
 void displayLCD(String message1, String message2){
@@ -66,10 +67,10 @@ void displayLCD(String message1, String message2){
 
 void displayFlash() {
   lcd.clear();
-  lcd.setCursor(0, 0);
-  for (int i = 0; i < 16; i++) {
-    lcd.write(byte(0));
-  }
+  // lcd.setCursor(0, 0);
+  // for (int i = 0; i < 16; i++) {
+  //   lcd.write(byte(0));
+  // }
   lcd.setCursor(0, 1);
   for (int i = 0; i < 16; i++) {
     lcd.write(byte(0));
