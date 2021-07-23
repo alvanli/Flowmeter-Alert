@@ -19,7 +19,7 @@ int photo2 = A1;
 int laser1 = A3;
 int laser2 = A4;
 
-int waitTime = 2000;
+int waitTime = 500;
 
 void setup() {
   // put your setup code here, to run once:
@@ -31,7 +31,7 @@ void setup() {
 
   radio.begin();                  //Starting the Wireless communication
   printf_begin();
-  check_radio();
+//  check_radio();
 //  analogWrite(laser1,255);
 //  analogWrite(laser2,255);
 }
@@ -69,6 +69,6 @@ void check_radio(){
 }
 
 void loop() {
-  test_photoresistor("BOTH");
+  test_photoresistor("TOP");
   
 }
