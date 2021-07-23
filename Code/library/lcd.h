@@ -8,12 +8,12 @@ LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
 String warning_string = "NO WARNINGS";
 const String ALARM_STR = "Alarm";
 const String THRESHOLD_STR = "Set Threshold";
-const String LED_STR = "LED";
+const String LED_STR = "Calibrate";
 const String RESET_STR = "RESET";
 const String BACK = "Back";
 const String MENU_ITEMS[] = {ALARM_STR, THRESHOLD_STR, LED_STR, RESET_STR, BACK};
 const int MENU_SIZE = 5;
-int THRESHOLD = 1000;
+int THRESHOLD = 0;
 
 int state = 0; // 0: Warning, 1: Menu, 2: Thres Menu
 int prevState = 0;
@@ -101,12 +101,12 @@ void mainMenuDisplay(int menuState){
   if (menuState == 0){
     firstMessage = firstMessage+ ": " + onOff(alarm_state); 
   }else if (menuState == 2){
-    firstMessage = firstMessage+ ": " + onOff(led_state);
+    firstMessage = firstMessage; //+ ": " + onOff(led_state);
   }
   if (secondState == 0){
     secondMessage = secondMessage + ": " + onOff(alarm_state); 
   }else if (secondState == 2){
-    secondMessage = secondMessage + ": " + onOff(led_state);
+    secondMessage = secondMessage; // + ": " + onOff(led_state);
   }
   displayLCD(firstMessage, secondMessage);
 }
@@ -120,7 +120,7 @@ void forceRefresh() {
 void showMenuAlarmCheck(int lcdKey) {
   if (state == 0){ 
     if (showFlash) {
-      if ((millis() - sometime) >= THRESHOLD) { // play alarm tone and switch screen to warning string
+      if ((millis() - sometime) >= THRESHOLD*1000) { // play alarm tone and switch screen to warning string
         showFlash = false;
         playing = true;
         sometime = millis();
@@ -130,7 +130,7 @@ void showMenuAlarmCheck(int lcdKey) {
     } else {
       sometime = millis();
       Serial.println("warning_string: " + warning_string);
-      displayLCD(warning_string, "");
+      displayLCD(warning_string, " ");
     }
     if (lcdKey == BTN_SELECT) {
       state = 1;
@@ -149,8 +149,10 @@ void showMenuAlarmCheck(int lcdKey) {
         state = 2;
         prevState = 1;
       }else if (menuState == 2){
-        led_state = !led_state;
+        // led_state = !led_state;
         forceRefresh();
+        displayLCD("Calibrating", "...");
+        delay(1000);
       }else if (menuState == 0){
         alarm_state = !alarm_state;
         forceRefresh();
@@ -158,6 +160,7 @@ void showMenuAlarmCheck(int lcdKey) {
         THRESHOLD = 1000;
         led_state = true;
         alarm_state = true;
+        THRESHOLD = 0;
         forceRefresh();
         displayLCD("Reset", "Complete");
         delay(1000);
@@ -173,10 +176,10 @@ void showMenuAlarmCheck(int lcdKey) {
     displayLCD(THRESHOLD_STR, String(THRESHOLD));
 
     if(lcdKey == BTN_DOWN){
-      THRESHOLD -= 5;
+      THRESHOLD -= 1;
       forceRefresh();
     }else if (lcdKey == BTN_UP){
-      THRESHOLD += 5;
+      THRESHOLD += 1;
       forceRefresh();
     }else if (lcdKey == BTN_SELECT){
       state = 0;

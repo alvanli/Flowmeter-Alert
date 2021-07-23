@@ -32,6 +32,7 @@ void loop() {
     switch(lcdKey) { // Delete??
     case BTN_SELECT: 
       Serial.println("select");
+      playing = false;
       tone(speaker_pin, NOTE_A5, 1000);
       break;
     case BTN_UP: 
