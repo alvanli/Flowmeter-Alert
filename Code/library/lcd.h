@@ -26,7 +26,6 @@ String prevMsg2 = "";
 
 unsigned long sometime = 0;
 bool showFlash = false;
-bool firstFlash = true;
 
 byte full_square[] = {
   B11111, 
@@ -62,6 +61,19 @@ void displayLCD(String message1, String message2){
     lcd.print(message1);
     lcd.setCursor(0, 1);
     lcd.print(message2);
+  }
+}
+
+void displayLCDWithFlash(String message1) {
+  if (!prevMsg1.equals(message1)){
+    prevMsg1 = message1;
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print(message1);
+    lcd.setCursor(0, 1);
+    for (int i = 0; i < 16; i++) {
+      lcd.write(byte(0));
+    }
   }
 }
 
@@ -108,14 +120,12 @@ void forceRefresh() {
 void showMenuAlarmCheck(int lcdKey) {
   if (state == 0){ 
     if (showFlash) {
-      if ((millis() - sometime) >= 300) { // play alarm tone and switch screen to warning string
+      if ((millis() - sometime) >= THRESHOLD) { // play alarm tone and switch screen to warning string
         showFlash = false;
-        firstFlash = true;
         playing = true;
         sometime = millis();
-      } else if (firstFlash) { // set screen to flash
-        displayFlash();
-        firstFlash = false;
+      } else {
+        displayLCDWithFlash(warning_string);
       }
     } else {
       sometime = millis();
