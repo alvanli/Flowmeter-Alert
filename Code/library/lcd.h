@@ -5,7 +5,7 @@ const int speaker_pin = speaker;
 
 LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
 
-String warning_string = "NO WARNINGS";
+String warning_string = "NO WARNING";
 const String ALARM_STR = "Alarm";
 const String THRESHOLD_STR = "Set Threshold";
 const String LED_STR = "Calibrate";
