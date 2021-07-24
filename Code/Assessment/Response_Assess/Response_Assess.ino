@@ -13,7 +13,7 @@ void setup() {
 }
 
 void loop() {
-  if (!showFlash && !playing) { // play alarm randomly
+  if (!showFlash && !playing && !awaitingInput) { // play alarm randomly
     randVal = random(100);
     if (randVal < 2) {
       setWarningString("TOO HIGH");
@@ -24,14 +24,14 @@ void loop() {
     }
   }
 
-  if (!playing && !showFlash && !warning_string.equals("NO WARNING")) { // reset if needed
+  if (!playing && !showFlash && !warning_string.equals("NO WARNING") && !awaitingInput) { // reset if needed
     setWarningString("NO WARNING");
     forceRefresh();
-    awaitingInput = false;
   }
 
   if (Serial.available() > 0) { // output response time
     Serial.println("Response time (ms): " + String(millis() - timeStart));
+    awaitingInput = false;
   }
 
   if (!awaitingInput) { // update time if not waiting for user input
