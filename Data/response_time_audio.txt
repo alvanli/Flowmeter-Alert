@@ -1,0 +1,152 @@
+Response time (ms): 796
+Response time (ms): 995
+Response time (ms): 1181
+Response time (ms): 869
+Response time (ms): 816
+
+30
+Response time (ms): 1137
+30
+18
+Response time (ms): 852
+18
+Response time (ms): 1185
+21
+Response time (ms): 1969
+15
+Response time (ms): 1042
+15
+Response time (ms): 1232
+15
+Response time (ms): 1003
+12
+Response time (ms): 1674
+21
+Response time (ms): 1423
+21
+Response time (ms): 875
+12
+Response time (ms): 1052
+12
+Response time (ms): 1325
+21
+Response time (ms): 905
+Response time (ms): 1107
+18
+Response time (ms): 1327
+21
+Response time (ms): 1229
+21
+Response time (ms): 1230
+18
+Response time (ms): 1301
+21
+Response time (ms): 966
+3
+Response time (ms): 1203
+12
+Response time (ms): 1027
+Response time (ms): 1228
+24
+Response time (ms): 1051
+6
+Response time (ms): 1338
+21
+Response time (ms): 1038
+21
+Response time (ms): 1626
+27
+Response time (ms): 953
+12
+Response time (ms): 1232
+0
+Response time (ms): 1197
+9
+Response time (ms): 888
+24
+Response time (ms): 1073
+9
+Response time (ms): 956
+27
+Response time (ms): 1424
+27
+Response time (ms): 2529
+0
+Response time (ms): 1655
+3
+Response time (ms): 2331
+24
+Response time (ms): 1070
+9
+Response time (ms): 908
+12
+Response time (ms): 1272
+9
+Response time (ms): 977
+15
+Response time (ms): 1148
+3
+Response time (ms): 970
+15
+Response time (ms): 1030
+21
+Response time (ms): 1070
+0
+Response time (ms): 1075
+18
+Response time (ms): 1606
+24
+Response time (ms): 1783
+3
+Response time (ms): 1472
+3
+Response time (ms): 1541
+15
+Response time (ms): 1670
+6
+Response time (ms): 1854
+15
+Response time (ms): 2008
+12
+Response time (ms): 4242
+27
+Response time (ms): 1695
+15
+Response time (ms): 1173
+9
+Response time (ms): 1047
+24
+Response time (ms): 1064
+6
+Response time (ms): 1222
+24
+Response time (ms): 1134
+24
+Response time (ms): 1341
+0
+Response time (ms): 1933
+0
+Response time (ms): 1526
+21
+Response time (ms): 1487
+0
+Response time (ms): 6359
+3
+Response time (ms): 845
+9
+Response time (ms): 807
+21
+Response time (ms): 1135
+3
+Response time (ms): 963
+27
+Response time (ms): 1127
+21
+Response time (ms): 1138
+6
+Response time (ms): 948
+12
+Response time (ms): 1181
+24
+Response time (ms): 936
+3

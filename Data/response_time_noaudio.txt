@@ -1,0 +1,84 @@
+Response time (ms): 2357
+18
+Response time (ms): 1584
+24
+Response time (ms): 3287
+21
+Response time (ms): 21526
+24
+Response time (ms): 1854
+9
+Response time (ms): 2131
+18
+Response time (ms): 2232
+21
+Response time (ms): 2526
+6
+Response time (ms): 15286
+3
+Response time (ms): 5034
+27
+Response time (ms): 6215
+12
+Response time (ms): 1873
+27
+Response time (ms): 7633
+21
+Response time (ms): 2764
+0
+Response time (ms): 1236
+12
+Response time (ms): 8932
+0
+Response time (ms): 913
+15
+Response time (ms): 3903
+27
+Response time (ms): 4521
+18
+Response time (ms): 1567
+27
+Response time (ms): 1345
+21
+Response time (ms): 1219
+18
+Response time (ms): 1565
+6
+Response time (ms): 2824
+27
+Response time (ms): 1579
+27
+Response time (ms): 11733
+12
+Response time (ms): 11868
+27
+Response time (ms): 2232
+27
+Response time (ms): 1063
+18
+Response time (ms): 1164
+18
+Response time (ms): 4170
+21
+Response time (ms): 3661
+15
+Response time (ms): 8211
+21
+Response time (ms): 5346
+9
+Response time (ms): 27841
+18
+Response time (ms): 5421
+21
+Response time (ms): 1778
+15
+Response time (ms): 3202
+6
+Response time (ms): 1151
+12
+Response time (ms): 2420
+27
+Response time (ms): 1474
+18
+Response time (ms): 1914
+9
