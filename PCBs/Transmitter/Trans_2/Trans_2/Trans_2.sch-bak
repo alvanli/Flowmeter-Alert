@@ -463,4 +463,70 @@ $EndComp
 Connection ~ 3600 4000
 Text Notes 6650 3100 0    50   ~ 0
 3.3K or 4K\n
+$Comp
+L Diode_Laser:PL450B LD?
+U 1 1 60ECBAB2
+P 5700 4400
+F 0 "LD?" H 5650 4685 50  0000 C CNN
+F 1 "PL450B" H 5650 4594 50  0000 C CNN
+F 2 "OptoDevice:LaserDiode_TO38ICut-3" H 5700 4225 50  0001 C CNN
+F 3 "http://www.osram-os.com/Graphics/XPic5/00193831_0.pdf/PL%20450B.pdf" H 5730 4200 50  0001 C CNN
+	1    5700 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Diode_Laser:PL450B LD?
+U 1 1 60ECD420
+P 5700 4950
+F 0 "LD?" H 5650 5235 50  0000 C CNN
+F 1 "PL450B" H 5650 5144 50  0000 C CNN
+F 2 "OptoDevice:LaserDiode_TO38ICut-3" H 5700 4775 50  0001 C CNN
+F 3 "http://www.osram-os.com/Graphics/XPic5/00193831_0.pdf/PL%20450B.pdf" H 5730 4750 50  0001 C CNN
+	1    5700 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 60ED26AD
+P 6200 5100
+F 0 "R?" H 6270 5146 50  0000 L CNN
+F 1 "R" H 6270 5055 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 6130 5100 50  0001 C CNN
+F 3 "~" H 6200 5100 50  0001 C CNN
+	1    6200 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60ED26B3
+P 6200 5250
+F 0 "#PWR?" H 6200 5000 50  0001 C CNN
+F 1 "GND" H 6205 5077 50  0000 C CNN
+F 2 "" H 6200 5250 50  0001 C CNN
+F 3 "" H 6200 5250 50  0001 C CNN
+	1    6200 5250
+	1    0    0    -1  
+$EndComp
+Text Notes 6350 5150 0    50   ~ 0
+220\n
+Text Label 5000 4950 2    60   ~ 0
+A4
+Wire Wire Line
+	5400 4950 5000 4950
+Text Label 5000 4400 2    60   ~ 0
+A3
+Wire Wire Line
+	5000 4400 5400 4400
+Wire Wire Line
+	5900 4400 6200 4400
+Wire Wire Line
+	6200 4400 6200 4900
+Wire Wire Line
+	5900 4950 6200 4950
+Wire Wire Line
+	6200 4950 6200 4900
+Connection ~ 6200 4950
+Connection ~ 6200 4900
+Wire Wire Line
+	6200 4900 6200 4950
 $EndSCHEMATC
