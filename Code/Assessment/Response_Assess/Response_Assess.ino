@@ -1,4 +1,6 @@
+#include "C:/DATA/Git/Flowmeter-Alert/Code/library/detectButton.h"
 #include "C:/DATA/Git/Flowmeter-Alert/Code/library/lcd.h"
+
 
 int randVal = 0;
 bool awaitingInput = false;
@@ -12,9 +14,13 @@ void setup() {
   timeStart = millis();
 }
 
+int lcdKey = 0;
+
 void loop() {
+  lcdKey = readLCDButtons();
+  
   if (!showFlash && !playing && !awaitingInput) { // play alarm randomly
-    randVal = random(100);
+    randVal = random(1000);
     if (randVal < 2) {
       setWarningString("TOO HIGH");
       forceRefresh();
@@ -28,9 +34,9 @@ void loop() {
     setWarningString("NO WARNING");
     forceRefresh();
   }
-
-  if (Serial.available() > 0) { // output response time
-    Serial.println("Response time (ms): " + String(millis() - timeStart));
+  Serial.println(lcdKey);
+  if (lcdKey == BTN_UP) { // output response time
+    //Serial.println("Response time (ms): " + String(millis() - timeStart));
     awaitingInput = false;
   }
 

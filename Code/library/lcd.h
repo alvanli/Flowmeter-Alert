@@ -129,7 +129,7 @@ void showMenuAlarmCheck(int lcdKey) {
       }
     } else {
       sometime = millis();
-      Serial.println("warning_string: " + warning_string);
+      //Serial.println("warning_string: " + warning_string);
       displayLCD(warning_string, " ");
     }
     if (lcdKey == BTN_SELECT) {
