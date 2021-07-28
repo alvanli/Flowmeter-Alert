@@ -6,7 +6,7 @@ from statistics import NormalDist
 
 xls = pd.ExcelFile('C://DATA//Git//Flowmeter-Alert//Data//Photoresistor.xlsx')
 
-ll_dict = {'low': 'Low', 'medium': 'Medium', 'high': 'High', 'vhigh': 'Very High'}
+ll_dict = {'low': 'Low', 'medium': 'Ambient', 'high': 'High', 'vhigh': 'Very High'}
 
 def analyze_photo(light_level='low'):
     df = pd.read_excel(xls, 'photoresistor_'+light_level)   
@@ -63,5 +63,5 @@ for light_level in ['low', 'medium', 'high', 'vhigh']:
 # plt.tight_layout()
 plt.title("Scatter Plot of Photoresistor Values at various Light Levels")
 plt.legend()
-plt.xlabel('Photoresistor Value')
+plt.xlabel('Analog Value')
 plt.ylabel('Light Level')
