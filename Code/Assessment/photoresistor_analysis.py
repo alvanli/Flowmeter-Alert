@@ -13,7 +13,7 @@ def analyze_photo(light_level='low'):
     uncovered = df["Uncovered Top Resistor"]
     laserd = df["Lasered Top Resistor"]
     diff = (laserd-uncovered)
-    thres = (uncovered.head(20) + laserd.head(20)).mean()/2
+    thres = (uncovered.head(10) + laserd.head(10)).mean()/2
     uncovered = uncovered[uncovered < thres]
     # x_range = np.arange(np.min(diff), np.max(diff), 1)
 
@@ -22,9 +22,9 @@ def analyze_photo(light_level='low'):
     uncovered_label = 'Blocked by Ball' if light_level == 'low' else None
     laserd_label = 'Unblocked (Laser)' if light_level == 'low' else None
     thres_label = 'Threshold' if light_level == 'low' else None
-    plt.scatter(uncovered, [ll_dict[light_level]]*uncovered.size, c='orange', label=uncovered_label)
-    plt.scatter(laserd, [ll_dict[light_level]]*laserd.size, c='darkblue', label=laserd_label)
-    plt.scatter([thres], [ll_dict[light_level]], c='red', label=thres_label, marker='x')
+    plt.scatter(uncovered, [ll_dict[light_level]]*uncovered.size, c='orange', label=uncovered_label, s=10, alpha=0.2)
+    plt.scatter(laserd, [ll_dict[light_level]]*laserd.size, c='darkblue', label=laserd_label, s=10, alpha=0.2)
+    plt.scatter([thres], [ll_dict[light_level]], c='red', label=thres_label, marker='|', s= 100)
     
     mu, std = norm.fit(diff) # mu is sample mean, std is sample dist
     
@@ -55,10 +55,12 @@ def analyze_photo(light_level='low'):
     
     print("N: {}, Mean: {:.02f}, STD: {:.02f}, <0.05%: {:.02f}".format(diff.size, mu, std, lessthan05))
     print()
-    
+   
+plt.figure(figsize=(6,4))
 for light_level in ['low', 'medium', 'high', 'vhigh']:
     analyze_photo(light_level)
     
+# plt.tight_layout()
 plt.title("Scatter Plot of Photoresistor Values at various Light Levels")
 plt.legend()
 plt.xlabel('Photoresistor Value')
